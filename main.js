@@ -82,13 +82,19 @@
   addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
   const navLinks = $$('.main-nav a[href^="#"]:not(.button)');
-  const sectionObs = new IntersectionObserver((entries) => {
-    entries.forEach((en) => {
-      if (!en.isIntersecting) return;
-      navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  navLinks.forEach((a) => { const s = $(a.getAttribute('href')); if (s) sectionObs.observe(s); });
+  // Highlight the last nav section whose top has passed mid-screen; the hero (no link) clears it.
+  const spyTargets = navLinks.map((a) => [a, $(a.getAttribute('href'))]).filter(([, s]) => s);
+  let spyQueued = false;
+  const spy = () => {
+    spyQueued = false;
+    const mid = innerHeight * 0.45;
+    let current = null;
+    spyTargets.forEach(([a, s]) => { if (s.getBoundingClientRect().top <= mid) current = a; });
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) current = spyTargets[spyTargets.length - 1][0];
+    navLinks.forEach((a) => a.classList.toggle('active', a === current));
+  };
+  addEventListener('scroll', () => { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
+  spy();
 
   /* ---------- Revelado al hacer scroll ---------- */
   const revealObs = new IntersectionObserver((entries) => {
@@ -174,8 +180,11 @@
     addEventListener('resize', resize);
 
     chans.forEach((li) => {
-      li.addEventListener('pointerenter', () => { focus = +li.dataset.ch; chans.forEach((x) => x.classList.toggle('on', x === li)); });
-      li.addEventListener('pointerleave', () => { focus = -1; chans.forEach((x) => x.classList.remove('on')); });
+      const set = (on) => { focus = on ? +li.dataset.ch : -1; chans.forEach((x) => x.classList.toggle('on', on && x === li)); };
+      // Mouse follows hover; touch/pen toggle on tap so the highlight sticks.
+      li.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') set(true); });
+      li.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') set(false); });
+      li.addEventListener('pointerup', (e) => { if (e.pointerType !== 'mouse') set(focus !== +li.dataset.ch); });
     });
 
     const spawn = () => {
@@ -634,9 +643,15 @@
   /* ---------- Máquina de escribir bilingüe ---------- */
   (function typer() {
     const el = $('#typer');
-    const phrases = ['Claridad para decidir. Apoyo que se siente.', 'Clarity to decide. Support you can feel.', 'No adivinamos. Diagnosticamos.', 'We don\'t guess. We diagnose.', 'Antes de escalar, ordena.', 'Before you scale, get organized.'];
+    // Phrases follow the page language so the Spanish page never types English.
+    const sets = {
+      es: ['Claridad para decidir. Apoyo que se siente.', 'No adivinamos. Diagnosticamos.', 'Antes de escalar, ordena.'],
+      en: ['Clarity to decide. Support you can feel.', 'We don\'t guess. We diagnose.', 'Before you scale, get organized.'],
+    };
+    let phrases = sets[lang] || sets.es;
     let i = 0, n = 0, del = false;
-    lockHeight($('.typer'), phrases.length, (k) => { el.textContent = k >= 0 ? phrases[k] : phrases[i].slice(0, n); });
+    onLang.push(() => { phrases = sets[lang] || sets.es; i = 0; n = 0; del = false; el.textContent = reduceMotion ? phrases[0] : ''; });
+    lockHeight($('.typer'), 3, (k) => { el.textContent = k >= 0 ? phrases[k] : phrases[i].slice(0, n); });
     if (reduceMotion) { el.textContent = phrases[0]; return; }
     (function tick() {
       const p = phrases[i];
