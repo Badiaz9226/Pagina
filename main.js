@@ -5,6 +5,8 @@
   const CONFIG = {
     // Correo que recibe las solicitudes del formulario de contacto.
     email: 'administracion@agencialumetrix.com',
+    // FormSubmit reenvía cada envío del formulario a ese correo (sin servidor propio).
+    formEndpoint: 'https://formsubmit.co/ajax/administracion@agencialumetrix.com',
   };
 
   const $ = (s, el = document) => el.querySelector(s);
@@ -681,8 +683,12 @@
     if ([...sel.options].some((o) => o.value === a.dataset.prefill)) sel.value = a.dataset.prefill;
   });
 
-  form.addEventListener('submit', (e) => {
+  const submitBtn = $('button[type="submit"]', form);
+  const submitLabel = $('span', submitBtn);
+  let sending = false;
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (sending) return;
     let ok = true;
     $$('[required]', form).forEach((f) => {
       const bad = !f.value.trim() || (f.type === 'email' && !/^\S+@\S+\.\S+$/.test(f.value));
@@ -695,8 +701,10 @@
       return;
     }
     const data = Object.fromEntries(new FormData(form));
+    if (data._honey) return; // campo trampa: solo lo llenan los bots
     const interes = $('#f-interes').selectedOptions[0].textContent;
-    const subject = t('Revisión de embudo', 'Funnel review') + ' — ' + (data.empresa || data.nombre);
+    const quien = data.empresa || data.nombre;
+    const subject = t('Revisión de embudo', 'Funnel review') + ' — ' + quien;
     const body = [
       `${t('Nombre', 'Name')}: ${data.nombre}`,
       `${t('Correo', 'Email')}: ${data.email}`,
@@ -706,9 +714,52 @@
       '',
       data.mensaje,
     ].join('\n');
-    location.href = mailHref(subject, body);
+
+    sending = true;
+    submitBtn.disabled = true;
+    const label = submitLabel.textContent;
+    submitLabel.textContent = t('Enviando…', 'Sending…');
     status.className = 'form-status';
-    status.textContent = t('¡Listo! Se abrió tu correo con el mensaje preparado. Solo presiona enviar y te respondemos pronto.', 'Done! Your email app opened with the message ready. Just hit send and we\'ll get back to you soon.');
+    status.textContent = '';
+    try {
+      // El correo siempre llega en español para el equipo; "email" queda como respuesta directa al cliente.
+      const res = await fetch(CONFIG.formEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: `Nuevo contacto web — ${quien}`,
+          _template: 'table',
+          _captcha: 'false',
+          Nombre: data.nombre,
+          email: data.email,
+          Empresa: data.empresa || '—',
+          'Le interesa': interes,
+          'Idioma preferido': data.idioma,
+          Mensaje: data.mensaje,
+          'Enviado desde': location.origin + location.pathname,
+        }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || res.status);
+      form.reset();
+      status.className = 'form-status';
+      status.textContent = t('¡Gracias! Recibimos tu mensaje y te responderemos pronto a tu correo.', 'Thank you! We received your message and will reply to your email soon.');
+    } catch (err) {
+      status.className = 'form-status err';
+      status.textContent = t('No pudimos enviar el formulario. ', 'We couldn\'t send the form. ');
+      const a = document.createElement('a');
+      a.href = mailHref(subject, body);
+      a.textContent = t('Envíalo por correo', 'Send it by email');
+      const w = document.createElement('a');
+      w.href = 'https://wa.me/573181030964?text=' + encodeURIComponent(body);
+      w.target = '_blank'; w.rel = 'noopener';
+      w.textContent = 'WhatsApp';
+      status.append(a, t(' o escríbenos por ', ' or message us on '), w, '.');
+    } finally {
+      sending = false;
+      submitBtn.disabled = false;
+      submitLabel.textContent = label;
+    }
   });
   $$('[required]', form).forEach((f) => f.addEventListener('input', () => f.classList.remove('invalid')));
 

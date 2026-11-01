@@ -549,6 +549,9 @@ textarea { resize: vertical; min-height: 110px; }
 .contact-form .button { justify-self: start; }
 .form-status { min-height: 1.4em; font-size: 14px; color: var(--green); }
 .form-status.err { color: var(--pink); }
+.form-status a { color: var(--cyan); text-decoration: underline; }
+.contact-form .button:disabled { opacity: .7; cursor: wait; }
+.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
 /* Footer */
 .site-footer { position: relative; overflow: hidden; padding: 70px 0 40px; border-top: 1px solid var(--border); text-align: center; }
