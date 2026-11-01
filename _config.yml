@@ -1,0 +1,5 @@
+# GitHub Pages: publica solo la página; los archivos de trabajo quedan en el repo pero no en el sitio.
+exclude:
+  - README.md
+  - "Logo y imagenes"
+  - conceptos-web
