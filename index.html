@@ -62,6 +62,8 @@
     <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 8H6.2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></symbol>
     <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12 18 6"/><circle cx="12" cy="12" r="1"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8.5 8.5 0 1 1 8.4 19Z"/><path d="M9 8.5c0 3.5 2.5 6.5 6.5 6.5l1-1.6-2-1-1 1c-1.2-.5-2.3-1.6-2.8-2.8l1-1-1-2Z"/></symbol>
     <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5Z"/></symbol>
   </svg>
 
@@ -160,7 +162,6 @@
           <p class="obs-hint" data-en="Hover a channel to follow its signals. Pink dots are leaks: opportunity that never turns into a sale.">Pasa el cursor por un canal para seguir sus señales. Los puntos rosados son fugas: oportunidades que nunca llegan a venta.</p>
         </div>
       </div>
-      <a class="scroll-cue" href="#reto" aria-label="Bajar" data-en-aria="Scroll down"><span></span></a>
     </section>
 
     <div class="marquee" aria-hidden="true">
@@ -418,7 +419,6 @@
         <div class="case-tabs reveal" role="tablist" aria-label="Casos">
           <button role="tab" aria-selected="true" data-case="0"><strong>Perfumería Millennio</strong><small data-en="Original fragrances">Perfumes originales</small></button>
           <button role="tab" aria-selected="false" data-case="1"><strong>VR Shop</strong><small data-en="Women's fashion">Moda femenina</small></button>
-          <button role="tab" aria-selected="false" data-case="2"><strong>Almmah Brand</strong><small data-en="Casual apparel">Ropa casual</small></button>
         </div>
         <div class="case-stage reveal">
           <article class="case is-active" data-case="0">
@@ -461,26 +461,6 @@
               <div class="sig"><span data-en="Measurement sources connected at launch">Fuentes de medición conectadas al lanzar</span><strong class="big-t">5</strong></div>
               <div class="sig"><span data-en="Next step">Siguiente paso</span><strong class="mid-t green-t" data-en="Bring WhatsApp demand to the website">Llevar la demanda de WhatsApp a la web</strong></div>
               <p class="fine" data-en="Recent launch: we report results once there is enough evidence.">Lanzamiento reciente: reportaremos resultados cuando haya evidencia suficiente.</p>
-            </div>
-          </article>
-          <article class="case" data-case="2">
-            <div class="case-main">
-              <p class="case-meta"><span>almmahbrand.com</span><span>Shopify + POS</span><span data-en="Tees, oversize &amp; jackets">Camisetas, oversize y chaquetas</span></p>
-              <div class="case-block"><span class="r-pill amber" data-en="Challenge">Reto</span><p data-en="Nearly all traffic arrives on mobile, and the shopping experience wasn't keeping up with the brand's offline strength.">Casi todo el tráfico llega desde el móvil y la experiencia de compra no estaba a la altura de la fuerza de la marca.</p></div>
-              <div class="case-block"><span class="r-pill" data-en="What we did">Qué hicimos</span>
-                <ul class="case-list">
-                  <li data-en="Annual digital diagnosis: sales, ads and abandonment">Diagnóstico digital anual: ventas, pauta y abandono</li>
-                  <li data-en="Mobile-first redesign, live since October 2026">Rediseño mobile-first, en vivo desde octubre de 2026</li>
-                  <li data-en="Cash-on-delivery and installment options made clear on product pages">Contraentrega y cuotas explicadas con claridad en cada producto</li>
-                  <li data-en="Clarity + GA4 to find drop-off points, and fixes based on real session recordings">Clarity + GA4 para ubicar puntos de abandono y correcciones a partir de sesiones reales</li>
-                </ul>
-              </div>
-            </div>
-            <div class="case-signals">
-              <p class="case-sig-title" data-en="SIGNALS WE TRACK">SEÑALES QUE MEDIMOS</p>
-              <div class="sig"><span data-en="Share of traffic on mobile">Tráfico que llega desde móvil</span><strong class="big-t">97%</strong><div class="sig-bar"><span style="--to:97%"></span></div></div>
-              <div class="sig"><span data-en="Method">Método</span><strong class="mid-t" data-en="Session recordings → prioritized fixes">Grabaciones de sesión → correcciones priorizadas</strong></div>
-              <div class="sig"><span data-en="Next step">Siguiente paso</span><strong class="mid-t green-t" data-en="Reduce cart and checkout drop-off">Reducir el abandono en carrito y checkout</strong></div>
             </div>
           </article>
         </div>
@@ -640,7 +620,11 @@
             <li><b>02</b><span data-en="Immediate priorities">Prioridades inmediatas</span></li>
             <li><b>03</b><span data-en="Recommended scope">Alcance recomendado</span></li>
           </ol>
-          <a class="mail-link" id="mail-link" href="#"><svg><use href="#i-mail"/></svg><span id="mail-text"></span></a>
+          <ul class="contact-links">
+            <li><a class="mail-link" id="mail-link" href="mailto:administracion@agencialumetrix.com"><svg><use href="#i-mail"/></svg><span id="mail-text">administracion@agencialumetrix.com</span></a></li>
+            <li><a class="mail-link" href="tel:+573181030964"><svg><use href="#i-phone"/></svg><span>+57 318 103 0964</span></a></li>
+            <li><a class="mail-link wa" id="wa-link" href="https://wa.me/573181030964" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span data-en="Message us on WhatsApp">Escríbenos por WhatsApp</span></a></li>
+          </ul>
         </div>
         <form class="contact-form reveal" id="contact-form" novalidate>
           <div class="form-row">
@@ -679,6 +663,7 @@
     <div class="container footer-inner">
       <a class="wordmark" href="#inicio"><svg class="logo-svg" aria-hidden="true"><use href="#logo"/></svg><span>LUMETRIX</span></a>
       <p class="footer-tag" data-en="Understand your funnel.<br><strong>Make better decisions.</strong>">Entiende tu embudo.<br><strong>Toma mejores decisiones.</strong></p>
+      <p class="footer-contact"><a href="mailto:administracion@agencialumetrix.com">administracion@agencialumetrix.com</a><span aria-hidden="true">·</span><a href="tel:+573181030964">+57 318 103 0964</a><span aria-hidden="true">·</span><a href="https://wa.me/573181030964" target="_blank" rel="noopener">WhatsApp</a></p>
       <p class="footer-meta"><span data-en="Clarity to decide. Support you can feel.">Claridad para decidir. Apoyo que se siente.</span><br>© <span id="year"></span> Lumetrix · <span data-en="Colombia & the Americas">Colombia y las Américas</span></p>
     </div>
   </footer>

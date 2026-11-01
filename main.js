@@ -503,7 +503,7 @@
     if (!en.isIntersecting) return;
     obs.disconnect();
     showCase(0);
-    caseTimer = setInterval(() => showCase((caseIdx + 1) % 3), 9000);
+    caseTimer = setInterval(() => showCase((caseIdx + 1) % $$('.case').length), 9000);
   }, { threshold: .3 }).observe(caseTabs);
 
   /* ---------- Quiz ---------- */
