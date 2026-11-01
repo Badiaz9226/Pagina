@@ -3,17 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Lumetrix: consultoría en estrategia de funnels, medios pagados y redes sociales.">
-  <meta name="theme-color" content="#020e1a">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'">
-  <title>Lumetrix — Estrategia que hace visible la oportunidad</title>
-  <link rel="icon" type="image/png" href="Logo y imagenes/Logo Lumetrix oficial transparente.png">
+  <title>Lumetrix — Claridad para decidir. Apoyo que se siente.</title>
+  <meta name="description" content="Lumetrix es una agencia boutique bilingüe de social media, paid media y estrategia de embudos. Diagnosticamos dónde se pierde la oportunidad y diseñamos un plan a la medida.">
+  <meta name="theme-color" content="#020d18">
+  <meta property="og:title" content="Lumetrix — Claridad para decidir. Apoyo que se siente.">
+  <meta property="og:description" content="Social y paid media con claridad de embudo. Diagnóstico, plan a la medida y acompañamiento bilingüe.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agencialumetrix.com/">
+  <meta property="og:image" content="https://agencialumetrix.com/assets/og-image.png">
+  <link rel="canonical" href="https://agencialumetrix.com/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#contenido" data-en="Skip to content">Saltar al contenido</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
   <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="logo" viewBox="440 350 1450 1140">
+      <rect x="455" y="365" width="220" height="1110" rx="110" fill="#fff"/>
+      <rect x="455" y="1257" width="940" height="218" rx="109" fill="#fff"/>
+      <rect x="510" y="419" width="583" height="109" rx="54.5" fill="#8aaed4"/>
+      <path d="M1270 1367 1567 1075" stroke="#2bbedf" stroke-width="134" stroke-linecap="round"/>
+      <circle cx="1471" cy="1184" r="36" fill="#fff"/>
+      <circle cx="1626" cy="1011" r="59" fill="#3cc785"/>
+      <circle cx="1749" cy="892" r="41" fill="#2bbedf"/>
+      <circle cx="1836" cy="765" r="27" fill="#fff"/>
+    </symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-9.8 7.1L5 20l1.4-4.3A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8.5 11.5h.1m3.3 0h.1m3.3 0h.1"/></symbol>
     <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m4 10 12-5v14L4 14Z"/><path d="M16 9c3 0 4 1.2 4 3s-1 3-4 3M7 15l1.5 5h4L11 16"/></symbol>
@@ -25,240 +47,642 @@
     <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10m5 10V6m5 14v-7m5 7V3"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></symbol>
     <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20v-2a6 6 0 0 1 12 0v2m0-6a5 5 0 0 1 6 4.8V20"/></symbol>
-    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.8"/></symbol>
     <symbol id="i-screen" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8m-4-3v3M7 14l3-3 2 2 4-5 2 2"/></symbol>
     <symbol id="i-like" viewBox="0 0 24 24"><path d="M8 21H4V10h4m0 11h8.5a2 2 0 0 0 1.9-1.4l2.4-7A2 2 0 0 0 19 10h-5l1-4.2A2.3 2.3 0 0 0 12.8 3L8 10Z"/></symbol>
     <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18m0-18a15 15 0 0 0 0 18"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.9 4.9 7 7m10 10 2.1 2.1M4.9 19.1 7 17m10-10 2.1-2.1"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5Z"/><path d="m3 13 9 5 9-5"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Z"/><path d="M4 19V5m4 2h7m-7 4h5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20Z"/><path d="M12 9v5m0 3h.01"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4m8-4v4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 8H6.2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12 18 6"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5Z"/></symbol>
   </svg>
 
-  <header class="site-header">
+  <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="wordmark" href="#inicio" aria-label="Lumetrix, inicio">
-        <span class="logo-mini" aria-hidden="true"><img src="Logo y imagenes/Logo Lumetrix oficial transparente.png" alt=""></span>
+      <a class="wordmark" href="#inicio" aria-label="Lumetrix">
+        <svg class="logo-svg" aria-hidden="true"><use href="#logo"/></svg>
         <span>LUMETRIX</span>
       </a>
-      <nav class="main-nav" aria-label="Navegación principal">
-        <a href="#servicios">SERVICIOS</a>
-        <a href="#metodo">MÉTODO</a>
-        <a href="#enfoque">ENFOQUE</a>
-        <a href="#recursos">RECURSOS</a>
-        <a href="#nosotros">NOSOTROS</a>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-en-aria="Main navigation">
+        <a href="#enfoque" data-en="Approach">Enfoque</a>
+        <a href="#diagnostico" data-en="Funnel check">Diagnóstico</a>
+        <a href="#metodo" data-en="Method">Método</a>
+        <a href="#servicios" data-en="Services">Servicios</a>
+        <a href="#casos" data-en="Work">Casos</a>
+        <a href="#faq" data-en="FAQ">Preguntas</a>
+        <a class="button button-small nav-cta-mobile" href="#contacto" data-en="Book a funnel review">Agenda una revisión</a>
       </nav>
       <div class="header-actions">
-        <span class="language" aria-label="Idiomas disponibles">ES / EN</span>
+        <div class="lang-switch" role="group" aria-label="Idioma / Language">
+          <button type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          <span class="lang-thumb" aria-hidden="true"></span>
+        </div>
+        <a class="button button-small header-cta magnetic" href="#contacto"><span data-en="Book a review">Agenda una revisión</span> <svg><use href="#i-arrow"/></svg></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú" data-en-aria="Open menu"><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <main id="contenido">
+    <!-- HERO -->
     <section class="hero" id="inicio">
+      <div class="hero-bg" aria-hidden="true"><canvas id="stars"></canvas></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>Hacemos visible<br>dónde se pierde<br>la oportunidad.</h1>
-          <p>Consultoría en estrategia de funnels,<br>medios pagados y redes sociales.</p>
-          <a class="button" href="#diagnostico">Revisa tu embudo <span aria-hidden="true">→</span></a>
+          <p class="eyebrow reveal"><span class="live-dot"></span> <span data-en="Social media · Paid media · Funnel strategy">Social media · Paid media · Funnel strategy</span></p>
+          <h1 class="reveal" data-en="We make visible <span class='hl'>where opportunity</span> <span class='hl hl-2'>is lost.</span>">Hacemos visible <span class="hl">dónde se pierde</span> <span class="hl hl-2">la oportunidad.</span></h1>
+          <p class="lead reveal" data-en="We diagnose what is slowing your growth, build a tailored plan and stay close as you decide what to test, adjust or scale — in English or Spanish.">Diagnosticamos qué frena tu crecimiento, diseñamos un plan a la medida y te acompañamos para decidir qué probar, ajustar o escalar — en español o inglés.</p>
+          <div class="hero-actions reveal">
+            <a class="button magnetic" href="#diagnostico"><span data-en="Check your funnel">Revisa tu embudo</span> <svg><use href="#i-arrow"/></svg></a>
+            <a class="button button-ghost" href="#metodo" data-en="See how we work">Cómo trabajamos</a>
+          </div>
+          <ul class="trust-row reveal">
+            <li><svg><use href="#i-check"/></svg><span data-en="Diagnosis before investment">Diagnóstico antes de inversión</span></li>
+            <li><svg><use href="#i-check"/></svg><span data-en="No empty promises">Sin promesas vacías</span></li>
+            <li><svg><use href="#i-check"/></svg><span data-en="Bilingual ES / EN">Bilingüe ES / EN</span></li>
+          </ul>
         </div>
 
-        <div class="observatory" role="img" aria-label="Observatorio de crecimiento: los canales convergen en un embudo de datos que permite decidir, enfocar, probar y escalar.">
-          <p class="diagram-title">OBSERVATORIO DE CRECIMIENTO</p>
-          <div class="observatory-grid">
-            <div class="channel-panel glass-panel">
-              <span class="panel-label">CANALES</span>
-              <span><svg><use href="#i-search"/></svg> Paid Search <i></i></span>
-              <span><svg><use href="#i-like"/></svg> Paid Social <i></i></span>
-              <span><svg><use href="#i-chat"/></svg> Social Orgánico <i></i></span>
-              <span><svg><use href="#i-screen"/></svg> Email <i></i></span>
-              <span><svg><use href="#i-target"/></svg> Directo <i></i></span>
-            </div>
-            <div class="funnel-wrap">
-              <div class="funnel-lines" aria-hidden="true"></div>
-              <div class="funnel">
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <div class="funnel-drop" aria-hidden="true"></div>
-              <div class="pulse-node"><i></i></div>
-            </div>
-            <div class="metric-stack">
-              <div class="metric-card glass-panel">
-                <span>RENDIMIENTO</span>
-                <svg class="spark" viewBox="0 0 110 45" aria-hidden="true"><path d="M3 39H107M6 34l12-21 13 17 14-13 14 13 17-27 13 16 15-10"/></svg>
-              </div>
-              <div class="metric-card glass-panel">
-                <span>CONVERSIONES</span>
-                <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
-              <div class="metric-card glass-panel">
-                <span>SEÑALES</span>
-                <div class="signal-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
-              </div>
-            </div>
+        <div class="observatory reveal" id="observatory">
+          <p class="obs-title"><span class="live-dot"></span> <span data-en="GROWTH OBSERVATORY · LIVE">OBSERVATORIO DE CRECIMIENTO · EN VIVO</span></p>
+          <div class="obs-stage">
+            <svg class="obs-svg" viewBox="0 0 560 460" aria-hidden="true">
+              <defs>
+                <linearGradient id="fGrad" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0" stop-color="#00b1d7" stop-opacity=".35"/>
+                  <stop offset="1" stop-color="#2e74b5" stop-opacity=".08"/>
+                </linearGradient>
+                <radialGradient id="gGlow"><stop offset="0" stop-color="#21bf73" stop-opacity=".8"/><stop offset="1" stop-color="#21bf73" stop-opacity="0"/></radialGradient>
+              </defs>
+              <path class="funnel-body" d="M195 70 Q290 100 385 70 L308 320 Q290 328 272 320 Z" fill="url(#fGrad)"/>
+              <g class="funnel-rings">
+                <ellipse cx="290" cy="70" rx="95" ry="14"/>
+                <ellipse cx="290" cy="135" rx="75" ry="11"/>
+                <ellipse cx="290" cy="200" rx="55" ry="9"/>
+                <ellipse cx="290" cy="262" rx="36" ry="7"/>
+                <ellipse cx="290" cy="320" rx="18" ry="4"/>
+              </g>
+              <path class="spout" d="M290 324V392"/>
+              <circle cx="290" cy="410" r="38" fill="url(#gGlow)" class="decision-glow"/>
+              <circle cx="290" cy="410" r="11" class="decision-core"/>
+            </svg>
+            <canvas class="obs-canvas" id="obs-canvas" aria-hidden="true"></canvas>
+            <ul class="obs-channels">
+              <li style="--y:70" data-ch="0"><svg><use href="#i-search"/></svg>Paid Search</li>
+              <li style="--y:135" data-ch="1"><svg><use href="#i-like"/></svg>Paid Social</li>
+              <li style="--y:200" data-ch="2"><svg><use href="#i-chat"/></svg><span data-en="Organic social">Social orgánico</span></li>
+              <li style="--y:265" data-ch="3"><svg><use href="#i-mail"/></svg>Email</li>
+              <li style="--y:330" data-ch="4"><svg><use href="#i-target"/></svg><span data-en="Direct">Directo</span></li>
+            </ul>
+            <ul class="obs-stages" aria-hidden="true">
+              <li style="--y:70" data-en="ATTENTION">ATENCIÓN</li>
+              <li style="--y:135" data-en="INTEREST">INTERÉS</li>
+              <li style="--y:200">LEAD</li>
+              <li style="--y:262" data-en="OPPORTUNITY">OPORTUNIDAD</li>
+              <li style="--y:320" data-en="SALE">VENTA</li>
+            </ul>
+            <div class="obs-decision" style="--y:410"><strong data-en="DECISION">DECISIÓN</strong><span data-en="Focus. Test. Scale.">Enfocar. Probar. Escalar.</span></div>
           </div>
-          <p class="decision-label"><strong>DECISIÓN</strong><br>Enfocar. Probar. Escalar.</p>
+          <div class="obs-stats" aria-live="off">
+            <div><span data-en="Incoming signals">Señales entrantes</span><strong id="st-in">0</strong></div>
+            <div class="leak"><span data-en="Visible leaks">Fugas visibles</span><strong id="st-leak">0</strong></div>
+            <div class="win"><span data-en="Reach decision">Llegan a decisión</span><strong id="st-out">0</strong></div>
+          </div>
+          <p class="obs-hint" data-en="Hover a channel to follow its signals. Pink dots are leaks: opportunity that never turns into a sale.">Pasa el cursor por un canal para seguir sus señales. Los puntos rosados son fugas: oportunidades que nunca llegan a venta.</p>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#reto" aria-label="Bajar" data-en-aria="Scroll down"><span></span></a>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Señales</span><i>✦</i><span>Embudo</span><i>✦</i><span>Claridad</span><i>✦</i><span>Criterio</span><i>✦</i><span>Hipótesis</span><i>✦</i><span>Aprendizaje</span><i>✦</i><span>Paid media</span><i>✦</i><span>Social media</span><i>✦</i><span>Tracking</span><i>✦</i>
+        <span>Señales</span><i>✦</i><span>Embudo</span><i>✦</i><span>Claridad</span><i>✦</i><span>Criterio</span><i>✦</i><span>Hipótesis</span><i>✦</i><span>Aprendizaje</span><i>✦</i><span>Paid media</span><i>✦</i><span>Social media</span><i>✦</i><span>Tracking</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- EL RETO -->
+    <section class="section" id="reto">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-en="THE CHALLENGE">EL RETO</p>
+          <h2 data-en="More investment doesn't fix<br>a funnel nobody understands.">Más inversión no corrige<br>un embudo que no se entiende.</h2>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card reveal" style="--d:0">
+            <span class="num">01</span>
+            <div class="problem-visual pv-signals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <h3 data-en="Signals without reading">Señales sin lectura</h3>
+            <p data-en="Each platform's metrics tell a different story — and none of them explains the whole funnel.">Las métricas de cada plataforma cuentan historias distintas y ninguna explica el embudo completo.</p>
+          </article>
+          <article class="problem-card reveal" style="--d:1">
+            <span class="num">02</span>
+            <div class="problem-visual pv-arrows" aria-hidden="true"><i></i><i></i><i></i></div>
+            <h3 data-en="Disconnected actions">Acciones sin conexión</h3>
+            <p data-en="Content, ads and sales move in different directions instead of working as one system.">Contenido, pauta y ventas avanzan en direcciones distintas en lugar de funcionar como un sistema.</p>
+          </article>
+          <article class="problem-card reveal" style="--d:2">
+            <span class="num">03</span>
+            <div class="problem-visual pv-loop" aria-hidden="true"><i></i></div>
+            <h3 data-en="Investment without learning">Inversión sin aprendizaje</h3>
+            <p data-en="The campaign ends, but the next decision is no better than the last one.">La campaña termina, pero la siguiente decisión no es mejor que la anterior.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="diagnostic-band" id="diagnostico">
-      <div class="container diagnostic-inner">
-        <span class="diagnostic-icon"><svg><use href="#i-search"/></svg></span>
-        <h2>Diagnóstico antes de inversión.</h2>
-        <p>Analizamos tu embudo, tus canales y tus datos para encontrar<br>fugas, incoherencias y oportunidades reales de mejora.</p>
-      </div>
-    </section>
-
-    <section class="content-section strategy" id="enfoque">
-      <div class="container split-layout">
-        <div class="section-copy">
-          <p class="eyebrow">LO QUE HACEMOS</p>
-          <h2>Estrategia que conecta<br>contenido, pauta y embudo<br>para generar demanda<br>con intención.</h2>
-          <p>Combinamos pensamiento estratégico, ejecución<br>cuidadosa y análisis riguroso para construir sistemas<br>de crecimiento que sean claros, medibles y sostenibles.</p>
-        </div>
-        <div class="strategy-map">
-          <div class="feature-list">
-            <article><span class="icon-ring"><svg><use href="#i-chat"/></svg></span><p><strong>SOCIAL MEDIA</strong>Contenido con propósito.</p></article>
-            <article><span class="icon-ring"><svg><use href="#i-megaphone"/></svg></span><p><strong>PAID MEDIA</strong>Inversión con dirección.</p></article>
-            <article class="green"><span class="icon-ring"><svg><use href="#i-funnel"/></svg></span><p><strong>FUNNEL STRATEGY</strong>Sistemas que convierten.</p></article>
+    <!-- ENFOQUE -->
+    <section class="section section-alt" id="enfoque">
+      <div class="container split">
+        <div class="section-copy reveal">
+          <p class="eyebrow" data-en="WHAT WE DO">LO QUE HACEMOS</p>
+          <h2 data-en="Strategy that connects content, ads and funnel.">Estrategia que conecta contenido, pauta y embudo.</h2>
+          <p data-en="We turn scattered signals into clear decisions. Choose a pillar to see how it plugs into your funnel.">Convertimos señales dispersas en decisiones claras. Elige un pilar para ver cómo se conecta con tu embudo.</p>
+          <div class="pillar-tabs" role="tablist" aria-label="Pilares">
+            <button role="tab" aria-selected="true" data-pillar="0"><span class="icon-ring"><svg><use href="#i-chat"/></svg></span><span><strong>Social media</strong><small data-en="Content with purpose">Contenido con propósito</small></span></button>
+            <button role="tab" aria-selected="false" data-pillar="1"><span class="icon-ring"><svg><use href="#i-megaphone"/></svg></span><span><strong>Paid media</strong><small data-en="Investment with direction">Inversión con dirección</small></span></button>
+            <button role="tab" aria-selected="false" data-pillar="2" class="green"><span class="icon-ring"><svg><use href="#i-funnel"/></svg></span><span><strong>Funnel strategy</strong><small data-en="Systems that convert">Sistemas que convierten</small></span></button>
           </div>
-          <svg class="merge-lines" viewBox="0 0 190 190" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 17H94L153 95"></path>
-            <path d="M0 95H153"></path>
-            <path d="M0 173H94L153 95"></path>
-            <circle cx="160" cy="95" r="5"></circle>
+        </div>
+        <div class="pillar-stage reveal">
+          <svg class="merge-svg" viewBox="0 0 400 300" aria-hidden="true">
+            <path class="mline" data-line="0" d="M10 50H150Q200 50 230 150"/>
+            <path class="mline" data-line="1" d="M10 150H230"/>
+            <path class="mline" data-line="2" d="M10 250H150Q200 250 230 150"/>
+            <circle cx="236" cy="150" r="6" class="mdot"/>
           </svg>
-          <div class="large-mark" aria-hidden="true"><img src="Logo y imagenes/Logo Lumetrix oficial transparente.png" alt=""></div>
+          <div class="pillar-core">
+            <svg class="logo-svg big" aria-hidden="true"><use href="#logo"/></svg>
+          </div>
+          <div class="pillar-panel" aria-live="polite">
+            <h3 id="pillar-title"></h3>
+            <p id="pillar-text"></p>
+            <ul id="pillar-list" class="check-list"></ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="content-section social" id="recursos">
-      <div class="container split-layout social-layout">
-        <div class="section-copy">
+    <!-- DIAGNÓSTICO INTERACTIVO -->
+    <section class="section" id="diagnostico">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" data-en="INTERACTIVE · 60-SECOND FUNNEL CHECK">INTERACTIVO · DIAGNÓSTICO EXPRESS</p>
+          <h2 data-en="Where is your funnel leaking?">¿Dónde se fuga tu embudo?</h2>
+          <p data-en="Move the sliders with your approximate numbers. We'll show you the stage that deserves attention before you invest more.">Mueve los controles con tus números aproximados. Te mostramos la etapa que merece atención antes de invertir más.</p>
+        </div>
+        <div class="calc reveal">
+          <form class="calc-inputs" id="calc-form" onsubmit="return false">
+            <label class="range">
+              <span><span data-en="Monthly visits">Visitas mensuales</span><output id="o-visits"></output></span>
+              <input type="range" id="c-visits" min="500" max="100000" step="500" value="10000">
+            </label>
+            <label class="range">
+              <span><span data-en="Visit → Lead">Visita → Lead</span><output id="o-r1"></output></span>
+              <input type="range" id="c-r1" min="0.2" max="12" step="0.1" value="1.4">
+            </label>
+            <label class="range">
+              <span><span data-en="Lead → Opportunity">Lead → Oportunidad</span><output id="o-r2"></output></span>
+              <input type="range" id="c-r2" min="2" max="80" step="1" value="35">
+            </label>
+            <label class="range">
+              <span><span data-en="Opportunity → Sale">Oportunidad → Venta</span><output id="o-r3"></output></span>
+              <input type="range" id="c-r3" min="2" max="70" step="1" value="22">
+            </label>
+            <label class="field">
+              <span data-en="Average ticket (USD)">Ticket promedio (USD)</span>
+              <input type="number" id="c-ticket" min="1" step="1" value="250" inputmode="numeric">
+            </label>
+          </form>
+
+          <div class="calc-output">
+            <div class="calc-funnel" id="calc-funnel">
+              <div class="cf-row" data-stage="0"><div class="cf-bar"><span class="cf-label" data-en="Visits">Visitas</span><strong class="cf-val">0</strong></div></div>
+              <div class="cf-row" data-stage="1"><div class="cf-bar"><span class="cf-label">Leads</span><strong class="cf-val">0</strong></div><em class="cf-leak"></em></div>
+              <div class="cf-row" data-stage="2"><div class="cf-bar"><span class="cf-label" data-en="Opportunities">Oportunidades</span><strong class="cf-val">0</strong></div><em class="cf-leak"></em></div>
+              <div class="cf-row" data-stage="3"><div class="cf-bar"><span class="cf-label" data-en="Sales">Ventas</span><strong class="cf-val">0</strong></div><em class="cf-leak"></em></div>
+            </div>
+            <div class="calc-result" aria-live="polite">
+              <p class="result-tag"><svg><use href="#i-alert"/></svg> <span data-en="Main leak detected">Fuga principal detectada</span></p>
+              <h3 id="calc-title"></h3>
+              <p id="calc-text"></p>
+              <ul class="check-list" id="calc-checks"></ul>
+              <div class="scenario">
+                <div><span data-en="Estimated monthly revenue">Ingreso mensual estimado</span><strong id="calc-rev">$0</strong></div>
+                <div class="up"><span data-en="If this stage reached the reference">Si esta etapa llegara a la referencia</span><strong id="calc-up">+$0</strong></div>
+              </div>
+              <p class="fine" data-en="Illustrative scenario with generic reference ranges. It is not a guarantee: every business, market and offer behaves differently. That is why we start with a real diagnosis.">Escenario ilustrativo con rangos de referencia genéricos. No es una garantía: cada negocio, mercado y oferta se comporta distinto. Por eso empezamos con un diagnóstico real.</p>
+              <a class="button magnetic" href="#contacto" data-prefill="diagnostico"><span data-en="Review my funnel with Lumetrix">Revisar mi embudo con Lumetrix</span> <svg><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="section section-alt" id="social">
+      <div class="container split">
+        <div class="section-copy reveal">
           <p class="eyebrow">SOCIAL MEDIA</p>
-          <h2>Creamos tus redes.<br>Hacemos crecer las<br>que ya tienes.</h2>
-          <p>Construimos una presencia sólida desde cero<br>o transformamos tus canales actuales en un<br>sistema de contenido, comunidad y crecimiento.</p>
+          <h2 data-en="We create your social channels.<br>We grow the ones you already have.">Creamos tus redes.<br>Hacemos crecer las que ya tienes.</h2>
+          <p data-en="We build a solid presence from scratch or turn your current channels into a system of content, community and growth.">Construimos una presencia sólida desde cero o transformamos tus canales actuales en un sistema de contenido, comunidad y crecimiento.</p>
+          <div class="segmented" role="tablist">
+            <button role="tab" aria-selected="true" data-path="0" data-en="From scratch">Desde cero</button>
+            <button role="tab" aria-selected="false" data-path="1" data-en="Existing channels">Redes existentes</button>
+            <span class="seg-thumb" aria-hidden="true"></span>
+          </div>
+          <ol class="path-steps" id="path-steps"></ol>
         </div>
-        <div class="social-map">
-          <div class="social-paths">
-            <p class="path-label">DESDE CERO</p>
-            <div class="node-row">
-              <div class="process-node"><span><svg><use href="#i-user"/></svg></span><small>Estrategia<br>y perfiles</small></div><i>→</i>
-              <div class="process-node"><span><svg><use href="#i-cards"/></svg></span><small>Identidad<br>y contenido</small></div><i>→</i>
-              <div class="process-node"><span><svg><use href="#i-megaphone"/></svg></span><small>Lanzamiento</small></div>
+        <div class="phone-wrap reveal">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="ph-head"><svg class="logo-svg ph-avatar" aria-hidden="true"><use href="#logo"/></svg><div><strong>lumetrix</strong><small id="ph-followers">1.248 <span data-en="followers">seguidores</span></small></div><b>•••</b></div>
+            <div class="ph-stories"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="ph-post"><div class="ph-post-art"><span></span><span></span><span></span></div><div class="ph-heart" aria-hidden="true">♥</div></div>
+            <div class="ph-actions"><span class="ph-like">♥ <b id="ph-likes">312</b></span><span>💬 <b>24</b></span><span>↗</span></div>
+            <div class="ph-lines"><i></i><i></i><i></i></div>
+          </div>
+          <div class="float-chip chip-a"><span class="live-dot"></span> <span data-en="Community + growth">Comunidad + crecimiento</span></div>
+          <div class="float-chip chip-b">+18% <span data-en="saves">guardados</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="section" id="recorrido">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" data-en="WHAT WE CONNECT">LO QUE CONECTAMOS</p>
+          <h2 data-en="Strategy, media and data, joined.">Unimos estrategia, medios y datos.</h2>
+          <p data-en="We connect every point of the customer journey to understand the what, the why and the next step. Tap a stage.">Conectamos cada punto del recorrido del cliente para entender el qué, el porqué y el próximo paso. Toca una etapa.</p>
+        </div>
+        <div class="journey reveal">
+          <div class="journey-line" aria-hidden="true"><span class="journey-pulse"></span></div>
+          <button class="j-node" data-j="0"><span><svg><use href="#i-people"/></svg></span><small data-en="AUDIENCE">AUDIENCIA</small></button>
+          <button class="j-node" data-j="1"><span><svg><use href="#i-search"/></svg></span><small data-en="DISCOVERY">DESCUBRIMIENTO</small></button>
+          <button class="j-node" data-j="2"><span><svg><use href="#i-screen"/></svg></span><small data-en="CONSIDERATION">CONSIDERACIÓN</small></button>
+          <button class="j-node" data-j="3"><span><svg><use href="#i-like"/></svg></span><small data-en="CONVERSION">CONVERSIÓN</small></button>
+          <button class="j-node" data-j="4"><span><svg><use href="#i-chart"/></svg></span><small data-en="RETENTION">RETENCIÓN</small></button>
+        </div>
+        <div class="journey-detail reveal" aria-live="polite">
+          <div><span class="jd-label" data-en="What we look at">Qué miramos</span><p id="jd-look"></p></div>
+          <div><span class="jd-label" data-en="Typical leak">Fuga típica</span><p id="jd-leak"></p></div>
+          <div><span class="jd-label" data-en="Signal that matters">Señal que importa</span><p id="jd-signal"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LUMEN -->
+    <section class="section method" id="metodo">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" data-en="OUR OWN METHOD">MÉTODO PROPIO</p>
+          <h2 data-en="The LUMEN Method">Método LUMEN</h2>
+          <p data-en="Five moves that turn observation into learning, and learning into action. A cycle that starts again with better information.">Cinco movimientos que convierten observación en aprendizaje y aprendizaje en acción. Un ciclo que vuelve a empezar con mejor información.</p>
+        </div>
+        <div class="lumen reveal">
+          <div class="lumen-track" role="tablist" aria-label="LUMEN">
+            <div class="lumen-progress" aria-hidden="true"><span></span></div>
+            <button role="tab" data-step="0"><b>L</b><small data-en="Learn">Leer</small></button>
+            <button role="tab" data-step="1"><b>U</b><small data-en="Uncover">Ubicar</small></button>
+            <button role="tab" data-step="2"><b>M</b><small data-en="Measure">Medir</small></button>
+            <button role="tab" data-step="3"><b>E</b><small data-en="Execute">Ejecutar</small></button>
+            <button role="tab" data-step="4"><b>N</b><small data-en="Navigate">Navegar</small></button>
+          </div>
+          <div class="lumen-panel" aria-live="polite">
+            <div class="lumen-letter" id="lumen-letter">L</div>
+            <div>
+              <p class="lumen-kicker" id="lumen-kicker"></p>
+              <h3 id="lumen-title"></h3>
+              <p id="lumen-text"></p>
+              <p class="lumen-output"><svg><use href="#i-check"/></svg><span><strong data-en="Output:">Salida:</strong> <span id="lumen-out"></span></span></p>
             </div>
-            <p class="path-label lower">REDES EXISTENTES</p>
-            <div class="node-row">
-              <div class="process-node"><span><svg><use href="#i-search"/></svg></span><small>Auditoría</small></div><i>→</i>
-              <div class="process-node"><span>⚙</span><small>Optimización</small></div><i>→</i>
-              <div class="process-node"><span><svg><use href="#i-target"/></svg></span><small>Crecimiento<br>continuo</small></div>
+            <div class="lumen-controls">
+              <button type="button" class="round-btn" id="lumen-prev" aria-label="Anterior" data-en-aria="Previous">←</button>
+              <button type="button" class="round-btn" id="lumen-play" aria-label="Pausar" data-en-aria="Pause">❚❚</button>
+              <button type="button" class="round-btn" id="lumen-next" aria-label="Siguiente" data-en-aria="Next">→</button>
             </div>
           </div>
-          <div class="community-node"><span class="pulse-node small"><i></i></span><strong>COMUNIDAD +<br>CRECIMIENTO</strong></div>
-          <div class="social-card glass-panel" aria-label="Vista ilustrativa de una red social">
-            <div class="profile"><i></i><span></span><b>•••</b></div>
-            <div class="stories"><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="post-image"><span></span></div>
-            <div class="post-lines"><i></i><i></i><i></i><i></i></div>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="content-section connection">
-      <div class="container split-layout connection-layout">
-        <div class="section-copy">
-          <p class="eyebrow">LO QUE CONECTAMOS</p>
-          <h2>Unimos estrategia,<br>medios y datos.</h2>
-          <p>Conectamos cada punto del recorrido del cliente<br>para entender el qué, el porqué y el próximo paso.</p>
-          <ul class="check-list">
-            <li>Visión completa del embudo</li>
-            <li>Atribución y señales claras</li>
-            <li>Decisiones basadas en datos</li>
-          </ul>
-        </div>
-        <div class="journey-map">
-          <div class="journey-node blue"><span><svg><use href="#i-people"/></svg></span><small>AUDIENCIA</small></div><i>→</i>
-          <div class="journey-node"><span><svg><use href="#i-link"/></svg></span><small>DESCUBRIMIENTO</small></div><i>→</i>
-          <div class="journey-node"><span><svg><use href="#i-screen"/></svg></span><small>CONSIDERACIÓN</small></div><i>→</i>
-          <div class="journey-node"><span><svg><use href="#i-like"/></svg></span><small>CONVERSIÓN</small></div><i>→</i>
-          <div class="journey-node green-fill"><span><svg><use href="#i-chart"/></svg></span><small>RETENCIÓN</small></div>
-          <div class="journey-return" aria-hidden="true"><span class="logo-mini"><img src="Logo y imagenes/Logo Lumetrix oficial transparente.png" alt=""></span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="method-section" id="metodo">
+    <!-- SERVICIOS -->
+    <section class="section" id="servicios">
       <div class="container">
-        <div class="center-heading">
-          <h2>Método LUMEN</h2>
-          <p>Un ciclo medible y repetible para tomar mejores decisiones.</p>
+        <div class="section-head reveal">
+          <p class="eyebrow" data-en="TAILORED SERVICES">SERVICIOS A LA MEDIDA</p>
+          <h2 data-en="A modular plan built around<br>your bottleneck.">Un plan modular, diseñado<br>alrededor de tu cuello de botella.</h2>
+          <p data-en="No generic packages. We start where your business needs it and connect only the capabilities that add value.">Sin paquetes genéricos. Empezamos donde tu negocio lo necesita y conectamos solo las capacidades que agregan valor.</p>
         </div>
-        <div class="method-track">
-          <article><span><b>L</b><svg><use href="#i-search"/></svg></span><strong>1. LOOK</strong><p>Exploramos<br>y medimos.</p></article><i>→</i>
-          <article><span><b>U</b><svg><use href="#i-target"/></svg></span><strong>2. UNDERSTAND</strong><p>Entendemos patrones<br>y causas.</p></article><i>→</i>
-          <article><span><b>M</b><svg><use href="#i-link"/></svg></span><strong>3. MODEL</strong><p>Modelamos escenarios<br>y opciones.</p></article><i>→</i>
-          <article><span><b>E</b><svg><use href="#i-like"/></svg></span><strong>4. EXECUTE</strong><p>Ejecutamos con foco<br>y disciplina.</p></article><i>→</i>
-          <article><span><b>N</b><svg><use href="#i-chart"/></svg></span><strong>5. NURTURE</strong><p>Aprendemos y<br>optimizamos.</p></article>
+        <div class="service-filters reveal" role="group" aria-label="Filtrar">
+          <button class="chip is-active" data-filter="all" data-en="All">Todos</button>
+          <button class="chip" data-filter="diagnosticar" data-en="Diagnose">Diagnosticar</button>
+          <button class="chip" data-filter="activar" data-en="Activate">Activar</button>
+          <button class="chip" data-filter="optimizar" data-en="Optimize">Optimizar</button>
+          <button class="chip" data-filter="expandir" data-en="Expand">Expandir</button>
         </div>
-      </div>
-    </section>
-
-    <section class="services-section" id="servicios">
-      <div class="container">
-        <p class="eyebrow">CÓMO AYUDAMOS</p>
-        <h2>Servicios principales</h2>
         <div class="service-grid">
-          <article><svg><use href="#i-search"/></svg><h3>Estrategia de<br>Funnel</h3><p>Diseñamos embudos alineados a tus objetivos de negocio y cliente.</p></article>
-          <article><svg><use href="#i-megaphone"/></svg><h3>Medios Pagados</h3><p>Planificación, gestión y optimización en Google, Meta, LinkedIn y más.</p></article>
-          <article><svg><use href="#i-like"/></svg><h3>Social Media</h3><p>Estrategia, contenido y gestión para construir comunidad y demanda.</p></article>
-          <article><svg><use href="#i-chart"/></svg><h3>Analytics &amp; Data</h3><p>Medición, dashboards y atribución para tomar decisiones claras.</p></article>
-          <article><svg><use href="#i-funnel"/></svg><h3>CRO &amp; Experimentación</h3><p>Probamos, aprendemos y mejoramos la conversión.</p></article>
+          <article class="service-card reveal" data-cat="diagnosticar"><span class="sc-icon"><svg><use href="#i-search"/></svg></span><span class="sc-tag" data-en="Diagnose">Diagnosticar</span><h3 data-en="Diagnosis &amp; audit">Diagnóstico y auditoría</h3><p data-en="Offer, funnel, accounts, tracking, data, lead quality, creatives, social profiles and sales process.">Oferta, funnel, cuentas, tracking, datos, calidad de leads, creatividades, perfiles sociales y proceso comercial.</p></article>
+          <article class="service-card reveal" data-cat="diagnosticar"><span class="sc-icon"><svg><use href="#i-funnel"/></svg></span><span class="sc-tag" data-en="Diagnose">Diagnosticar</span><h3 data-en="Funnel strategy">Estrategia de embudos</h3><p data-en="Journey, hypotheses, audiences, messages, channels, budget, scenarios and test plan.">Recorrido, hipótesis, audiencias, mensajes, canales, presupuesto, escenarios y plan de pruebas.</p></article>
+          <article class="service-card reveal" data-cat="activar"><span class="sc-icon"><svg><use href="#i-chat"/></svg></span><span class="sc-tag" data-en="Activate">Activar</span><h3>Social media</h3><p data-en="Editorial strategy, pillars, calendar, copy, design, short video, publishing and community.">Estrategia editorial, pilares, calendario, copy, diseño, video corto, publicación y comunidad.</p></article>
+          <article class="service-card reveal" data-cat="activar"><span class="sc-icon"><svg><use href="#i-megaphone"/></svg></span><span class="sc-tag" data-en="Activate">Activar</span><h3>Paid media</h3><p data-en="Planning, setup, structure, targeting, creatives and optimization on Meta, Google, LinkedIn and more.">Planeación, configuración, estructura, segmentación, creatividades y optimización en Meta, Google, LinkedIn y más.</p></article>
+          <article class="service-card reveal" data-cat="activar"><span class="sc-icon"><svg><use href="#i-pen"/></svg></span><span class="sc-tag" data-en="Activate">Activar</span><h3 data-en="Performance creative">Creatividad para performance</h3><p data-en="Angles, concepts, variants, message matrix and learning between ads and organic content.">Ángulos, conceptos, variantes, matriz de mensajes y aprendizaje entre anuncios y contenido orgánico.</p></article>
+          <article class="service-card reveal" data-cat="diagnosticar"><span class="sc-icon"><svg><use href="#i-chart"/></svg></span><span class="sc-tag" data-en="Diagnose">Diagnosticar</span><h3 data-en="Tracking &amp; measurement">Tracking y medición</h3><p data-en="Events, UTMs, conversions, dashboards, taxonomy and reading criteria.">Eventos, UTMs, conversiones, dashboards, taxonomía y criterios de lectura.</p></article>
+          <article class="service-card reveal" data-cat="optimizar"><span class="sc-icon"><svg><use href="#i-flask"/></svg></span><span class="sc-tag" data-en="Optimize">Optimizar</span><h3 data-en="Optimization &amp; advisory">Optimización y advisory</h3><p data-en="Funnel reviews, opportunity quality, sales coordination and keep / change / pause / scale decisions.">Revisión del funnel, calidad de oportunidades, coordinación comercial y decisiones de mantener, cambiar, pausar o escalar.</p></article>
+          <article class="service-card reveal" data-cat="activar"><span class="sc-icon"><svg><use href="#i-cart"/></svg></span><span class="sc-tag" data-en="Activate">Activar</span><h3 data-en="Shopify e-commerce">E-commerce en Shopify</h3><p data-en="Theme design and development for mobile and desktop, payments, financing, shipping rules and seasonal campaigns.">Diseño y desarrollo del tema para móvil y web, pagos, financiación, reglas de envío y campañas de temporada.</p></article>
+          <article class="service-card reveal" data-cat="optimizar"><span class="sc-icon"><svg><use href="#i-radar"/></svg></span><span class="sc-tag" data-en="Optimize">Optimizar</span><h3 data-en="Price &amp; competitor intelligence">Inteligencia de precios y competencia</h3><p data-en="Daily monitoring of the same product at competitors, verified item by item, with alerts only when you lose on price.">Monitoreo diario del mismo producto en la competencia, verificado uno a uno, con alertas solo cuando pierdes en precio.</p></article>
+          <article class="service-card reveal" data-cat="expandir"><span class="sc-icon"><svg><use href="#i-globe"/></svg></span><span class="sc-tag" data-en="Expand">Expandir</span><h3 data-en="Bilingual expansion">Expansión bilingüe</h3><p data-en="Sessions, reports, copy and message adaptation in English or Spanish for markets across the Americas.">Sesiones, reportes, copy y adaptación de mensajes en español o inglés para mercados de las Américas.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="people-section" id="nosotros">
-      <div class="container people-layout">
-        <div class="section-copy">
-          <p class="eyebrow">ACOMPAÑAMIENTO HUMANO</p>
-          <h2>Estrategia rigurosa.<br>Conversaciones cercanas.</h2>
-          <p>Trabajamos como extensión de tu equipo,<br>con reuniones claras, seguimiento continuo<br>y apoyo bilingüe.</p>
+
+    <!-- CASOS -->
+    <section class="section section-alt" id="casos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-en="EXPERIENCE · WORK IN PROGRESS">EXPERIENCIA · PROYECTOS EN CURSO</p>
+          <h2 data-en="Real brands, real funnels.">Marcas reales, embudos reales.</h2>
+          <p data-en="E-commerce brands in Colombia we work with today. Each case follows our rule: problem → evidence → decision → next step.">Marcas de e-commerce en Colombia con las que trabajamos hoy. Cada caso sigue nuestra regla: problema → evidencia → decisión → siguiente paso.</p>
         </div>
-        <div class="team-photo" role="img" aria-label="Equipo diverso colaborando frente a computadores portátiles"></div>
+        <div class="case-tabs reveal" role="tablist" aria-label="Casos">
+          <button role="tab" aria-selected="true" data-case="0"><strong>Perfumería Millennio</strong><small data-en="Original fragrances">Perfumes originales</small></button>
+          <button role="tab" aria-selected="false" data-case="1"><strong>VR Shop</strong><small data-en="Women's fashion">Moda femenina</small></button>
+          <button role="tab" aria-selected="false" data-case="2"><strong>Almmah Brand</strong><small data-en="Casual apparel">Ropa casual</small></button>
+        </div>
+        <div class="case-stage reveal">
+          <article class="case is-active" data-case="0">
+            <div class="case-main">
+              <p class="case-meta"><span>perfumeriamillennio.com</span><span>Shopify</span><span data-en="+1,100 products · ~100 brands">+1.100 productos · ~100 marcas</span></p>
+              <div class="case-block"><span class="r-pill amber" data-en="Challenge">Reto</span><p data-en="A large catalog, almost all traffic on mobile, low mobile conversion and many shoppers dropping off between checkout and payment.">Un catálogo grande, casi todo el tráfico en móvil, conversión móvil baja y muchos clientes que llegaban al checkout sin terminar el pago.</p></div>
+              <div class="case-block"><span class="r-pill" data-en="What we did">Qué hicimos</span>
+                <ul class="case-list">
+                  <li data-en="Full Shopify theme redesign, mobile and desktop designed separately">Rediseño completo del tema Shopify, con móvil y web diseñados por separado</li>
+                  <li data-en="Seasonal campaigns: Hot Sale, Halloween, Black Friday and 2-for bundles">Campañas de temporada: Hot Sale, Halloween, Black Friday y dúos</li>
+                  <li data-en="Measurement audit (GA4, GTM, Merchant Center), SEO and abandoned-cart analysis">Auditoría de medición (GA4, GTM, Merchant Center), SEO y análisis de carritos abandonados</li>
+                  <li data-en="Daily competitor price monitor and app security review">Monitor diario de precios de la competencia y revisión de seguridad de apps</li>
+                </ul>
+              </div>
+            </div>
+            <div class="case-signals">
+              <p class="case-sig-title" data-en="SIGNALS WE TRACK">SEÑALES QUE MEDIMOS</p>
+              <div class="sig"><span data-en="Store conversion, week before vs. after redesign">Conversión de la tienda, semana antes vs. después del rediseño</span><div class="sig-compare"><b>0,47%</b><i>→</i><strong class="green-t">0,66%</strong></div><div class="sig-bar"><span style="--to:71%"></span></div></div>
+              <div class="sig"><span data-en="Completed payments in the same comparison">Pagos completados en la misma comparación</span><strong class="big-t green-t">+45%</strong></div>
+              <div class="sig"><span data-en="Competitors monitored every morning">Competidores monitoreados cada mañana</span><strong class="big-t">3</strong></div>
+              <p class="fine" data-en="Short-window comparison with stable sessions. We keep measuring before calling it a trend.">Comparación de ventana corta con sesiones estables. Seguimos midiendo antes de llamarlo tendencia.</p>
+            </div>
+          </article>
+          <article class="case" data-case="1">
+            <div class="case-main">
+              <p class="case-meta"><span>vrshop.com.co</span><span>Shopify</span><span data-en="Dresses, sets &amp; jumpsuits">Vestidos, sets y enterizos</span></p>
+              <div class="case-block"><span class="r-pill amber" data-en="Challenge">Reto</span><p data-en="Demand already existed — most sales happened on WhatsApp — but the website barely turned visits into orders.">La demanda ya existía —la mayoría de ventas ocurría por WhatsApp— pero la web casi no convertía visitas en pedidos.</p></div>
+              <div class="case-block"><span class="r-pill" data-en="What we did">Qué hicimos</span>
+                <ul class="case-list">
+                  <li data-en="New store launched in October 2026 with its own design system for mobile and desktop">Nueva tienda lanzada en octubre de 2026 con sistema de diseño propio para móvil y web</li>
+                  <li data-en="Payments and financing (Mercado Pago, Addi, Sistecrédito), installments and shipping rules">Pagos y financiación (Mercado Pago, Addi, Sistecrédito), cuotas y reglas de envío</li>
+                  <li data-en="Measurement from day one: GA4, Search Console, Google Shopping, Meta pixel and Clarity">Medición desde el día uno: GA4, Search Console, Google Shopping, píxel de Meta y Clarity</li>
+                  <li data-en="Pricing study and commercial reports for the owner">Estudio de precios e informes comerciales para la marca</li>
+                </ul>
+              </div>
+            </div>
+            <div class="case-signals">
+              <p class="case-sig-title" data-en="SIGNALS WE TRACK">SEÑALES QUE MEDIMOS</p>
+              <div class="sig"><span data-en="Funnel stage under focus">Etapa del embudo en foco</span><strong class="mid-t" data-en="Visit → order">Visita → pedido</strong></div>
+              <div class="sig"><span data-en="Measurement sources connected at launch">Fuentes de medición conectadas al lanzar</span><strong class="big-t">5</strong></div>
+              <div class="sig"><span data-en="Next step">Siguiente paso</span><strong class="mid-t green-t" data-en="Bring WhatsApp demand to the website">Llevar la demanda de WhatsApp a la web</strong></div>
+              <p class="fine" data-en="Recent launch: we report results once there is enough evidence.">Lanzamiento reciente: reportaremos resultados cuando haya evidencia suficiente.</p>
+            </div>
+          </article>
+          <article class="case" data-case="2">
+            <div class="case-main">
+              <p class="case-meta"><span>almmahbrand.com</span><span>Shopify + POS</span><span data-en="Tees, oversize &amp; jackets">Camisetas, oversize y chaquetas</span></p>
+              <div class="case-block"><span class="r-pill amber" data-en="Challenge">Reto</span><p data-en="Nearly all traffic arrives on mobile, and the shopping experience wasn't keeping up with the brand's offline strength.">Casi todo el tráfico llega desde el móvil y la experiencia de compra no estaba a la altura de la fuerza de la marca.</p></div>
+              <div class="case-block"><span class="r-pill" data-en="What we did">Qué hicimos</span>
+                <ul class="case-list">
+                  <li data-en="Annual digital diagnosis: sales, ads and abandonment">Diagnóstico digital anual: ventas, pauta y abandono</li>
+                  <li data-en="Mobile-first redesign, live since October 2026">Rediseño mobile-first, en vivo desde octubre de 2026</li>
+                  <li data-en="Cash-on-delivery and installment options made clear on product pages">Contraentrega y cuotas explicadas con claridad en cada producto</li>
+                  <li data-en="Clarity + GA4 to find drop-off points, and fixes based on real session recordings">Clarity + GA4 para ubicar puntos de abandono y correcciones a partir de sesiones reales</li>
+                </ul>
+              </div>
+            </div>
+            <div class="case-signals">
+              <p class="case-sig-title" data-en="SIGNALS WE TRACK">SEÑALES QUE MEDIMOS</p>
+              <div class="sig"><span data-en="Share of traffic on mobile">Tráfico que llega desde móvil</span><strong class="big-t">97%</strong><div class="sig-bar"><span style="--to:97%"></span></div></div>
+              <div class="sig"><span data-en="Method">Método</span><strong class="mid-t" data-en="Session recordings → prioritized fixes">Grabaciones de sesión → correcciones priorizadas</strong></div>
+              <div class="sig"><span data-en="Next step">Siguiente paso</span><strong class="mid-t green-t" data-en="Reduce cart and checkout drop-off">Reducir el abandono en carrito y checkout</strong></div>
+            </div>
+          </article>
+        </div>
+        <ul class="industry-row reveal">
+          <li><svg><use href="#i-cart"/></svg><span data-en="Shopify e-commerce">E-commerce Shopify</span></li>
+          <li><svg><use href="#i-layers"/></svg><span data-en="Mobile + desktop design">Diseño móvil + web</span></li>
+          <li><svg><use href="#i-chart"/></svg><span data-en="GA4 · GTM · Clarity · Merchant">GA4 · GTM · Clarity · Merchant</span></li>
+          <li><svg><use href="#i-radar"/></svg><span data-en="Competitor monitoring">Monitoreo de competencia</span></li>
+          <li><svg><use href="#i-shield"/></svg><span data-en="Security &amp; app review">Seguridad y revisión de apps</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="decision-section">
-      <div class="container split-layout decision-layout">
-        <div class="section-copy">
-          <p class="eyebrow">DECISIONES TRAZABLES</p>
-          <h2>Decisiones trazables</h2>
-          <p>Te entregamos un sistema de decisión claro<br>para que sepas qué hacer, por qué y cuándo.</p>
-          <ul class="check-list green-checks">
-            <li>Prioridades y next steps</li>
-            <li>Hipótesis y experimentos</li>
-            <li>Reportes en lenguaje de negocio</li>
+    <!-- QUIZ -->
+    <section class="section" id="empezar">
+      <div class="container quiz-wrap">
+        <div class="section-copy reveal">
+          <p class="eyebrow" data-en="THREE WAYS TO WORK">TRES FORMAS DE TRABAJAR</p>
+          <h2 data-en="Where should you start?">¿Por dónde deberías empezar?</h2>
+          <p data-en="Answer three quick questions and we'll suggest the way of working that best fits your moment.">Responde tres preguntas rápidas y te sugerimos la forma de trabajo que mejor encaja con tu momento.</p>
+          <ul class="modes">
+            <li data-mode="0"><strong>Diagnostic Sprint</strong><span data-en="Focus before executing">Foco antes de ejecutar</span></li>
+            <li data-mode="1"><strong>Build &amp; Launch</strong><span data-en="Build or fix a system">Construir o corregir un sistema</span></li>
+            <li data-mode="2"><strong>Growth Partnership</strong><span data-en="Continuous execution and learning">Ejecución y aprendizaje continuo</span></li>
           </ul>
         </div>
-        <div class="decision-flow">
-          <article class="glass-panel signals-card"><span>SEÑALES CLAVE</span><div class="signal-grid"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div></article><i>⇢</i>
-          <article class="glass-panel system-card"><span>SISTEMA DE DECISIÓN</span><div class="system-orbit"><span class="logo-mini"><img src="Logo y imagenes/Logo Lumetrix oficial transparente.png" alt=""></span></div></article><i>⇢</i>
-          <article class="glass-panel actions-card"><span>ACCIONES RECOMENDADAS</span><ul><li></li><li></li><li></li></ul></article>
+        <div class="quiz reveal" id="quiz" aria-live="polite">
+          <div class="quiz-progress"><span></span></div>
+          <div class="quiz-body" id="quiz-body"></div>
         </div>
       </div>
     </section>
 
-    <aside class="global-band">
-      <div class="container global-inner">
-        <span><svg><use href="#i-globe"/></svg></span>
-        <h2>Bilingüe. Internacional. Boutique.</h2>
-        <p>Trabajamos en español e inglés con equipos<br>y mercados de Norteamérica y Latinoamérica.</p>
+    <!-- REPORTE vs DECISIÓN -->
+    <section class="section" id="diferencia">
+      <div class="container split">
+        <div class="section-copy reveal">
+          <p class="eyebrow" data-en="THE LUMETRIX DIFFERENCE">DIFERENCIA LUMETRIX</p>
+          <h2 data-en="We don't promise numbers.<br>We make the path visible.">No prometemos números.<br>Hacemos visible el camino.</h2>
+          <p data-en="A report should answer three questions: what happened, why it matters and what we will do next. Flip the switch and compare.">Un reporte debe responder tres preguntas: qué pasó, por qué importa y qué haremos después. Activa el interruptor y compara.</p>
+          <label class="switch">
+            <input type="checkbox" id="report-toggle" checked>
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span class="switch-label"><span class="off" data-en="Decorative report">Reporte decorativo</span><span class="on" data-en="Lumetrix decision system">Sistema de decisión Lumetrix</span></span>
+          </label>
+          <div class="formula">
+            <span data-en="Problem">Problema</span><i>→</i><span data-en="Evidence">Evidencia</span><i>→</i><span data-en="Decision">Decisión</span><i>→</i><span data-en="Next step">Siguiente paso</span>
+          </div>
+        </div>
+        <div class="report-stage reveal">
+          <div class="report is-decision" id="report">
+            <div class="report-face face-deco">
+              <p class="r-head"><span data-en="MONTHLY REPORT">REPORTE MENSUAL</span><b>📈</b></p>
+              <div class="r-kpis">
+                <div><span data-en="Impressions">Impresiones</span><strong>128.4k</strong><em>▲ 34%</em></div>
+                <div><span>CTR</span><strong>2.3%</strong><em>▲ 0.4</em></div>
+                <div><span data-en="Followers">Seguidores</span><strong>+340</strong><em>▲ 12%</em></div>
+                <div><span>Clicks</span><strong>2,941</strong><em>▲ 21%</em></div>
+              </div>
+              <div class="r-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <p class="r-question" data-en="…and now what? Is it working? What do we change?">…¿y ahora qué? ¿Está funcionando? ¿Qué cambiamos?</p>
+            </div>
+            <div class="report-face face-decision">
+              <p class="r-head"><span>CLARITY REVIEW</span><svg class="logo-svg" aria-hidden="true"><use href="#logo"/></svg></p>
+              <div class="r-block"><span class="r-pill" data-en="What happened">Qué pasó</span><p data-en="Ads generate interest, but lead quality drops after the form: only 1 in 9 leads replies to sales.">La pauta genera interés, pero la calidad cae después del formulario: solo 1 de cada 9 leads responde a ventas.</p></div>
+              <div class="r-block"><span class="r-pill amber" data-en="Why it matters">Por qué importa</span><p data-en="Scaling budget now would multiply low-quality leads and the cost per sale.">Escalar presupuesto ahora multiplicaría leads de baja calidad y el costo por venta.</p></div>
+              <div class="r-block"><span class="r-pill green" data-en="What we'll do">Qué haremos</span><p data-en="Add 2 qualifying questions, respond in under 5 min and test 2 new angles. Review in 14 days.">Agregar 2 preguntas de calificación, responder en menos de 5 min y probar 2 ángulos nuevos. Revisión en 14 días.</p></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </aside>
+    </section>
+
+    <!-- ENTREGABLES -->
+    <section class="section section-alt" id="entregables">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" data-en="WHAT YOU RECEIVE">LO QUE RECIBES</p>
+          <h2 data-en="An audit that ends in a decision system,<br>not a forgotten PDF.">La auditoría termina en un sistema de decisiones,<br>no en un PDF olvidado.</h2>
+          <p data-en="Hover (or tap) each deliverable to see how it should make you feel.">Pasa el cursor (o toca) cada entregable para ver qué debe hacerte sentir.</p>
+        </div>
+        <div class="deliv-grid">
+          <button class="deliv reveal" type="button"><span class="deliv-inner"><span class="deliv-front"><b>01</b><svg><use href="#i-target"/></svg><strong>Lumetrix Baseline</strong><small data-en="Starting point, sources, limits and reference signals.">Estado inicial, fuentes, límites y señales de referencia.</small></span><span class="deliv-back"><em data-en="“We start from a shared reality.”">“Partimos de una realidad compartida.”</em></span></span></button>
+          <button class="deliv reveal" type="button"><span class="deliv-inner"><span class="deliv-front"><b>02</b><svg><use href="#i-funnel"/></svg><strong>Funnel Map</strong><small data-en="Stages, owners, conversions, leaks and hypotheses.">Etapas, responsables, conversiones, fugas e hipótesis.</small></span><span class="deliv-back"><em data-en="“I can see where opportunity is lost.”">“Veo dónde se pierde la oportunidad.”</em></span></span></button>
+          <button class="deliv reveal" type="button"><span class="deliv-inner"><span class="deliv-front"><b>03</b><svg><use href="#i-layers"/></svg><strong data-en="Tailored plan">Plan a la medida</strong><small data-en="Priorities, channels, deliverables, budget and sequence.">Prioridades, canales, entregables, presupuesto y secuencia.</small></span><span class="deliv-back"><em data-en="“They didn't sell me a generic package.”">“No me vendieron un paquete genérico.”</em></span></span></button>
+          <button class="deliv reveal" type="button"><span class="deliv-inner"><span class="deliv-front"><b>04</b><svg><use href="#i-flask"/></svg><strong>Test &amp; Learn Board</strong><small data-en="Hypothesis, test, signal, result and decision.">Hipótesis, prueba, señal, resultado y decisión.</small></span><span class="deliv-back"><em data-en="“Every action teaches something.”">“Cada acción enseña algo.”</em></span></span></button>
+          <button class="deliv reveal" type="button"><span class="deliv-inner"><span class="deliv-front"><b>05</b><svg><use href="#i-book"/></svg><strong>Decision Log</strong><small data-en="What was decided, why, when, by whom and when we review it.">Qué se decidió, por qué, cuándo, responsable y revisión.</small></span><span class="deliv-back"><em data-en="“Context doesn't disappear.”">“El contexto no desaparece.”</em></span></span></button>
+          <button class="deliv reveal" type="button"><span class="deliv-inner"><span class="deliv-front"><b>06</b><svg><use href="#i-compass"/></svg><strong>Clarity Review</strong><small data-en="Executive reading, risks and next moves.">Lectura ejecutiva, riesgos y siguientes movimientos.</small></span><span class="deliv-back"><em data-en="“I understand what happened and what's next.”">“Entiendo qué pasó y qué sigue.”</em></span></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACOMPAÑAMIENTO -->
+    <section class="section" id="nosotros">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-en="HUMAN SUPPORT">ACOMPAÑAMIENTO HUMANO</p>
+          <h2 data-en="Rigorous strategy.<br>Close conversations.">Estrategia rigurosa.<br>Conversaciones cercanas.</h2>
+          <p data-en="We work as an extension of your team, with a visible rhythm so you never have to chase updates.">Trabajamos como extensión de tu equipo, con un ritmo visible para que nunca tengas que perseguir actualizaciones.</p>
+        </div>
+        <ol class="cadence">
+          <li class="reveal" style="--d:0"><span class="cad-dot"><svg><use href="#i-compass"/></svg></span><strong data-en="Kick-off">Inicio</strong><p data-en="Guided discovery, access, baseline and funnel map.">Descubrimiento guiado, accesos, línea base y mapa del embudo.</p></li>
+          <li class="reveal" style="--d:1"><span class="cad-dot"><svg><use href="#i-calendar"/></svg></span><strong data-en="Weekly">Semanal</strong><p data-en="Short update on signals, blockers, actions and decisions.">Actualización breve de señales, bloqueos, acciones y decisiones.</p></li>
+          <li class="reveal" style="--d:2"><span class="cad-dot"><svg><use href="#i-chart"/></svg></span><strong data-en="Monthly">Mensual</strong><p data-en="Clarity Review: funnel reading, learnings and next cycle.">Clarity Review: lectura del embudo, aprendizajes y siguiente ciclo.</p></li>
+          <li class="reveal alert" style="--d:3"><span class="cad-dot"><svg><use href="#i-alert"/></svg></span><strong data-en="When there's risk">Ante riesgo</strong><p data-en="Professional alert: broken tracking, abnormal spend, low-quality leads.">Alerta profesional: tracking roto, gasto anómalo, leads de baja calidad.</p></li>
+          <li class="reveal" style="--d:4"><span class="cad-dot"><svg><use href="#i-layers"/></svg></span><strong data-en="Quarterly">Trimestral</strong><p data-en="Strategy review, channel fit and business needs.">Revisión de estrategia, encaje de canales y necesidades del negocio.</p></li>
+        </ol>
+        <div class="values reveal">
+          <div class="value"><strong class="counter" data-to="7">0</strong><span data-en="non-negotiable values guide every decision">valores guían cada decisión</span></div>
+          <div class="value"><strong class="counter" data-to="5">0</strong><span data-en="LUMEN steps in every cycle">pasos LUMEN en cada ciclo</span></div>
+          <div class="value"><strong class="counter" data-to="6">0</strong><span data-en="visible deliverables">entregables visibles</span></div>
+          <div class="value"><strong>0</strong><span data-en="black boxes or artificial guarantees">cajas negras o garantías artificiales</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILINGÜE -->
+    <section class="global-band">
+      <div class="container global-inner reveal">
+        <div class="globe" aria-hidden="true"><svg><use href="#i-globe"/></svg><span class="orbit o1"></span><span class="orbit o2"></span></div>
+        <div>
+          <h2 data-en="One strategy. Two languages.">Una estrategia. Dos idiomas.</h2>
+          <p class="typer"><span id="typer"></span><span class="caret">|</span></p>
+          <p data-en="Meetings, strategy and deliverables in Spanish or English, adapting message, execution and reading to each market's cultural and commercial context. Colombia · The Americas · International teams.">Reuniones, estrategia y entregables en español o inglés, adaptando mensaje, ejecución y lectura al contexto cultural y comercial de cada mercado. Colombia · América · Equipos internacionales.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-copy reveal">
+          <p class="eyebrow" data-en="HONEST ANSWERS">RESPUESTAS HONESTAS</p>
+          <h2 data-en="The worries we hear most<br>(and how we answer them).">Las preocupaciones que más escuchamos<br>(y cómo las resolvemos).</h2>
+          <p data-en="Lumetrix is not the right fit for businesses expecting guaranteed results in a few days, or for teams that only want volume without strategy or measurement.">Lumetrix no es para negocios que exigen resultados garantizados en pocos días, ni para equipos que solo buscan volumen sin estrategia ni medición.</p>
+        </div>
+        <div class="faq reveal">
+          <details><summary data-en="“I'm going to lose my budget.”">“Voy a perder mi presupuesto.”</summary><p data-en="We start with a diagnosis, a baseline, test limits and pause criteria. We don't scale while tracking, offer or sales response don't allow us to learn with confidence.">Empezamos por diagnóstico, línea base, límites de prueba y criterios de pausa. No escalamos mientras el tracking, la oferta o la respuesta comercial no permitan aprender con confianza.</p></details>
+          <details><summary data-en="“I don't understand the reports.”">“No entiendo los reportes.”</summary><p data-en="We translate every signal into an implication and a decision. Business language, not jargon to impress.">Traducimos cada señal en una implicación y una decisión. Lenguaje de negocio, no jerga para impresionar.</p></details>
+          <details><summary data-en="“The agency doesn't understand my business.”">“La agencia no entiende mi negocio.”</summary><p data-en="We build the brief with you through guided discovery and a funnel map. We diagnose before we prescribe.">El brief lo construimos contigo mediante descubrimiento guiado y mapa de embudo. Diagnosticamos antes de prescribir.</p></details>
+          <details><summary data-en="“They promised a lot and then disappeared.”">“Me prometieron y luego desaparecieron.”</summary><p data-en="We define cadence, owners, a decision log and visible next steps. Every meeting closes with decisions, owners and a review date.">Definimos cadencia, responsables, registro de decisiones y próximos pasos visibles. Cada reunión cierra con decisiones, responsables y fecha de revisión.</p></details>
+          <details><summary data-en="“Leads come in, but they don't buy.”">“Los leads llegan, pero no compran.”</summary><p data-en="We look at quality, experience, response speed and conversion — not just cost per lead.">Miramos calidad, experiencia, velocidad de respuesta y conversión, no solo el costo por lead.</p></details>
+          <details><summary data-en="“My market is in another country.”">“Mi mercado está en otro país.”</summary><p data-en="We align language, offer, references, currency, time zone and buying journey. Bilingual, not literal.">Alineamos idioma, oferta, referencias, moneda, zona horaria y recorrido de compra. Bilingües, no literales.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section contact" id="contacto">
+      <div class="container contact-grid">
+        <div class="section-copy reveal">
+          <p class="eyebrow" data-en="NEXT STEP">SIGUIENTE PASO</p>
+          <h2 data-en="Before investing more,<br>let's make your next best step visible.">Antes de invertir más,<br>hagamos visible tu siguiente mejor paso.</h2>
+          <p data-en="Book a funnel review. In the first conversation you get:">Agenda una revisión de tu embudo. En la primera conversación obtienes:</p>
+          <ol class="next-list">
+            <li><b>01</b><span data-en="Clarity on your current state">Claridad del estado actual</span></li>
+            <li><b>02</b><span data-en="Immediate priorities">Prioridades inmediatas</span></li>
+            <li><b>03</b><span data-en="Recommended scope">Alcance recomendado</span></li>
+          </ol>
+          <a class="mail-link" id="mail-link" href="#"><svg><use href="#i-mail"/></svg><span id="mail-text"></span></a>
+        </div>
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="form-row">
+            <label><span data-en="Name">Nombre</span><input name="nombre" required autocomplete="name" placeholder="Tu nombre" data-en-placeholder="Your name"></label>
+            <label><span data-en="Email">Correo</span><input name="email" type="email" required autocomplete="email" placeholder="tu@empresa.com" data-en-placeholder="you@company.com"></label>
+          </div>
+          <div class="form-row">
+            <label><span data-en="Company">Empresa</span><input name="empresa" autocomplete="organization" placeholder="Nombre de tu marca" data-en-placeholder="Your brand"></label>
+            <label><span data-en="I'm interested in">Me interesa</span>
+              <select name="interes" id="f-interes">
+                <option value="diagnostico" data-en="Funnel review / diagnosis">Revisión de embudo / diagnóstico</option>
+                <option value="sprint">Diagnostic Sprint</option>
+                <option value="build">Build &amp; Launch</option>
+                <option value="partnership">Growth Partnership</option>
+                <option value="social">Social media</option>
+                <option value="paid">Paid media</option>
+                <option value="otro" data-en="Not sure yet">Aún no lo sé</option>
+              </select>
+            </label>
+          </div>
+          <label><span data-en="What would you like to understand better?">¿Qué quieres entender mejor?</span><textarea name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu negocio, tus canales y qué te preocupa." data-en-placeholder="Tell us about your business, your channels and what worries you."></textarea></label>
+          <div class="lang-pref">
+            <span data-en="Preferred language">Idioma preferido</span>
+            <label><input type="radio" name="idioma" value="Español" checked> Español</label>
+            <label><input type="radio" name="idioma" value="English"> English</label>
+          </div>
+          <button class="button magnetic" type="submit"><span data-en="Send and book my review">Enviar y agendar mi revisión</span> <svg><use href="#i-arrow"/></svg></button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer" id="contacto">
+  <footer class="site-footer">
     <div class="footer-orbit" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-    <p>Entiende tu embudo.<br><strong>Toma mejores decisiones.</strong></p>
+    <div class="container footer-inner">
+      <a class="wordmark" href="#inicio"><svg class="logo-svg" aria-hidden="true"><use href="#logo"/></svg><span>LUMETRIX</span></a>
+      <p class="footer-tag" data-en="Understand your funnel.<br><strong>Make better decisions.</strong>">Entiende tu embudo.<br><strong>Toma mejores decisiones.</strong></p>
+      <p class="footer-meta"><span data-en="Clarity to decide. Support you can feel.">Claridad para decidir. Apoyo que se siente.</span><br>© <span id="year"></span> Lumetrix · <span data-en="Colombia & the Americas">Colombia y las Américas</span></p>
+    </div>
   </footer>
+
+  <a class="to-top" href="#inicio" aria-label="Volver arriba" data-en-aria="Back to top">↑</a>
 </body>
 </html>
