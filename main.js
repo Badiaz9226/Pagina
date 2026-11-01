@@ -17,6 +17,19 @@
   const money = (n) => '$' + fmt(Math.round(n));
   const onLang = [];
 
+  // Fija la altura de un bloque al máximo de sus variantes para que el contenido de abajo no salte.
+  const lockers = [];
+  function lockHeight(el, n, show) {
+    lockers.push(() => {
+      el.style.minHeight = '';
+      let max = 0;
+      for (let i = 0; i < n; i++) { show(i); max = Math.max(max, el.offsetHeight); }
+      show(-1);
+      el.style.minHeight = max + 'px';
+    });
+  }
+  const relock = () => lockers.forEach((fn) => fn());
+
   /* ---------- Idioma ---------- */
   function applyLang(next) {
     lang = next;
@@ -80,7 +93,7 @@
   /* ---------- Revelado al hacer scroll ---------- */
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); revealObs.unobserve(en.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px 12% 0px' });
   $$('.reveal').forEach((el) => revealObs.observe(el));
 
   /* ---------- Cursor y botones magnéticos ---------- */
@@ -115,7 +128,8 @@
       }));
     };
     resize();
-    addEventListener('resize', resize);
+    let lastW = innerWidth;
+    addEventListener('resize', () => { if (innerWidth !== lastW) { lastW = innerWidth; resize(); } });
     addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
     new IntersectionObserver(([en]) => { running = en.isIntersecting; if (running) requestAnimationFrame(draw); }).observe(c);
     function draw(time) {
@@ -274,11 +288,11 @@
 
   /* ---------- Pilares ---------- */
   const PILLARS = [
-    { es: ['Social media', 'Contenido con propósito: cada pieza tiene un rol dentro del embudo, no solo un espacio en el calendario.', ['Pilares editoriales conectados a la oferta', 'Comunidad que se convierte en demanda', 'Aprendizaje orgánico que alimenta la pauta']],
+    { es: ['Redes sociales', 'Contenido con propósito: cada pieza tiene un rol dentro del embudo, no solo un espacio en el calendario.', ['Pilares editoriales conectados a la oferta', 'Comunidad que se convierte en demanda', 'Aprendizaje orgánico que alimenta la pauta']],
       en: ['Social media', 'Content with purpose: every piece has a role in the funnel, not just a slot in the calendar.', ['Editorial pillars connected to the offer', 'Community that turns into demand', 'Organic learning that feeds paid media']] },
-    { es: ['Paid media', 'Inversión con dirección: estructura, audiencias y creatividades pensadas para aprender antes de escalar.', ['Meta, Google, LinkedIn y más, según encaje', 'Límites de prueba y criterios de pausa', 'Optimización por señales reales, no por intuición']],
+    { es: ['Pauta digital', 'Inversión con dirección: estructura, audiencias y creatividades pensadas para aprender antes de escalar.', ['Meta, Google, LinkedIn y más, según encaje', 'Límites de prueba y criterios de pausa', 'Optimización por señales reales, no por intuición']],
       en: ['Paid media', 'Investment with direction: structure, audiences and creatives designed to learn before scaling.', ['Meta, Google, LinkedIn and more, when they fit', 'Test limits and pause criteria', 'Optimization based on real signals, not gut feeling']] },
-    { es: ['Funnel strategy', 'Sistemas que convierten: conectamos atención, intención, lead, respuesta comercial y venta en un solo recorrido.', ['Mapa del embudo con fugas e hipótesis', 'Tracking confiable y señales claras', 'Decisiones trazables: mantener, ajustar, pausar o escalar']],
+    { es: ['Estrategia de embudo', 'Sistemas que convierten: conectamos atención, intención, lead, respuesta comercial y venta en un solo recorrido.', ['Mapa del embudo con fugas e hipótesis', 'Medición confiable y señales claras', 'Decisiones trazables: mantener, ajustar, pausar o escalar']],
       en: ['Funnel strategy', 'Systems that convert: we connect attention, intent, lead, sales response and purchase in one journey.', ['Funnel map with leaks and hypotheses', 'Reliable tracking and clear signals', 'Traceable decisions: keep, adjust, pause or scale']] },
   ];
   let pillar = 0;
@@ -295,25 +309,36 @@
   $$('.pillar-tabs button').forEach((b) => b.addEventListener('click', () => { pillar = +b.dataset.pillar; clearInterval(pillarTimer); renderPillar(); }));
   let pillarTimer = setInterval(() => { if (!reduceMotion) { pillar = (pillar + 1) % 3; renderPillar(); } }, 5500);
   onLang.push(() => renderPillar(false));
+  lockHeight($('.pillar-panel'), PILLARS.length, (i) => {
+    const cur = pillar;
+    if (i >= 0) pillar = i;
+    renderPillar(false);
+    pillar = cur;
+  });
 
   /* ---------- Calculadora de embudo ---------- */
   const REF = [3, 30, 25];
   const DIAG = [
-    { es: ['La fuga está entre la visita y el lead', 'Mucha gente llega, pero pocos dejan sus datos. Antes de comprar más tráfico, revisa si el mensaje y la oferta cumplen lo que prometió el anuncio.', ['Coherencia entre anuncio y landing', 'Claridad de la oferta y del llamado a la acción', 'Fricción del formulario y velocidad de carga']],
+    { es: ['La fuga está entre la visita y el lead', 'Mucha gente llega, pero pocos dejan sus datos. Antes de comprar más tráfico, revisa si el mensaje y la oferta cumplen lo que prometió el anuncio.', ['Coherencia entre anuncio y página de destino', 'Claridad de la oferta y del llamado a la acción', 'Fricción del formulario y velocidad de carga']],
       en: ['The leak is between visit and lead', 'Plenty of people arrive, but few leave their details. Before buying more traffic, check whether the message and offer deliver what the ad promised.', ['Ad ↔ landing page consistency', 'Clarity of the offer and call to action', 'Form friction and page speed']] },
     { es: ['La fuga está en la calidad del lead', 'Llegan contactos, pero pocos se convierten en oportunidades reales. Suele ser un problema de segmentación, calificación o seguimiento, no de volumen.', ['Preguntas de calificación en el formulario', 'Velocidad de respuesta comercial', 'Segmentación y audiencias de la pauta']],
       en: ['The leak is lead quality', 'Contacts come in, but few become real opportunities. It is usually a targeting, qualification or follow-up issue — not a volume issue.', ['Qualifying questions on the form', 'Sales response speed', 'Ad targeting and audiences']] },
-    { es: ['La fuga está en el cierre', 'Hay oportunidades, pero no se convierten en ventas. Puede ser la oferta, el precio, el proceso comercial o el seguimiento.', ['Proceso y guion comercial', 'Nutrición y seguimiento (email, retargeting)', 'Prueba social y respuesta a objeciones']],
+    { es: ['La fuga está en el cierre', 'Hay oportunidades, pero no se convierten en ventas. Puede ser la oferta, el precio, el proceso comercial o el seguimiento.', ['Proceso y guion comercial', 'Nutrición y seguimiento (correo, anuncios de reimpacto)', 'Prueba social y respuesta a objeciones']],
       en: ['The leak is at closing', 'There are opportunities, but they don\'t turn into sales. It may be the offer, pricing, the sales process or follow-up.', ['Sales process and script', 'Nurturing and follow-up (email, retargeting)', 'Social proof and objection handling']] },
   ];
   const HEALTHY = {
-    es: ['Tu embudo está sobre la referencia', 'Ninguna etapa está por debajo de los rangos genéricos. El siguiente paso es validar estos datos con tracking confiable y escalar con criterio, no con ansiedad.', ['Validar que el tracking mide lo que crees', 'Definir criterios de escala y límites de prueba', 'Probar nuevas audiencias sin romper lo que funciona']],
+    es: ['Tu embudo está sobre la referencia', 'Ninguna etapa está por debajo de los rangos genéricos. El siguiente paso es validar estos datos con tracking confiable y escalar con criterio, no con ansiedad.', ['Validar que la medición registra lo que crees', 'Definir criterios de escala y límites de prueba', 'Probar nuevas audiencias sin romper lo que funciona']],
     en: ['Your funnel is above the reference', 'No stage is below the generic ranges. The next step is to validate this data with reliable tracking and scale with judgment, not anxiety.', ['Validate tracking measures what you think', 'Define scaling criteria and test limits', 'Test new audiences without breaking what works']],
   };
   const calc = {
     visits: $('#c-visits'), r1: $('#c-r1'), r2: $('#c-r2'), r3: $('#c-r3'), ticket: $('#c-ticket'),
   };
   let lastWorst = -2;
+  function fillDiag(title, text, checks) {
+    $('#calc-title').textContent = title;
+    $('#calc-text').textContent = text;
+    $('#calc-checks').innerHTML = checks.map((x) => `<li>${x}</li>`).join('');
+  }
   function runCalc() {
     const V = +calc.visits.value, r = [+calc.r1.value, +calc.r2.value, +calc.r3.value], tk = Math.max(0, +calc.ticket.value || 0);
     [calc.visits, calc.r1, calc.r2, calc.r3].forEach((inp) => {
@@ -348,9 +373,7 @@
       const better = V * r2[0] / 100 * r2[1] / 100 * r2[2] / 100;
       $('#calc-up').textContent = '+' + money((better - sales) * tk);
     }
-    $('#calc-title').textContent = title;
-    $('#calc-text').textContent = text;
-    $('#calc-checks').innerHTML = checks.map((x) => `<li>${x}</li>`).join('');
+    fillDiag(title, text, checks);
     const res = $('.calc-result');
     res.style.borderColor = worst === -1 ? 'rgba(33,191,115,.45)' : '';
     res.style.background = worst === -1 ? 'rgba(33,191,115,.06)' : '';
@@ -359,6 +382,10 @@
   }
   Object.values(calc).forEach((inp) => inp.addEventListener('input', runCalc));
   onLang.push(() => { lastWorst = -2; runCalc(); });
+  lockHeight($('.calc-result'), DIAG.length + 1, (i) => {
+    if (i < 0) return runCalc();
+    fillDiag(...(i < DIAG.length ? DIAG[i][lang] : HEALTHY[lang]));
+  });
 
   /* ---------- Social: caminos y teléfono ---------- */
   const PATHS = [
@@ -401,7 +428,7 @@
     ['Cómo te encuentran: búsqueda, redes, pauta, referidos y contenido.', 'How they find you: search, social, ads, referrals and content.',
       'Alcance alto con baja intención: muchas vistas, poco interés real.', 'High reach, low intent: lots of views, little real interest.',
       'Visitas de calidad y costo por visita con intención.', 'Quality visits and cost per intentful visit.'],
-    ['Qué ven al evaluarte: landing, prueba social, oferta y claridad.', 'What they see when evaluating you: landing page, social proof, offer and clarity.',
+    ['Qué ven al evaluarte: página de destino, prueba social, oferta y claridad.', 'What they see when evaluating you: landing page, social proof, offer and clarity.',
       'La promesa del anuncio no coincide con lo que encuentran.', 'The ad\'s promise doesn\'t match what they find.',
       'Tasa de visita a lead y tiempo en la página.', 'Visit-to-lead rate and time on page.'],
     ['El paso a la acción: formulario, compra, agenda o mensaje.', 'The step into action: form, purchase, booking or message.',
@@ -412,39 +439,46 @@
       'Recompra, referidos y valor del cliente en el tiempo.', 'Repeat purchase, referrals and customer lifetime value.'],
   ];
   let jStep = 0, jTimer;
-  function renderJourney() {
+  function renderJourney(animate = true) {
     const d = JOURNEY[jStep];
     $$('.j-node').forEach((n) => n.classList.toggle('active', +n.dataset.j === jStep));
     $('#jd-look').textContent = t(d[0], d[1]);
     $('#jd-leak').textContent = t(d[2], d[3]);
     $('#jd-signal').textContent = t(d[4], d[5]);
+    if (!animate) return;
     const box = $('.journey-detail');
     box.classList.remove('swap'); void box.offsetWidth; box.classList.add('swap');
   }
   $$('.j-node').forEach((n) => n.addEventListener('click', () => { clearInterval(jTimer); jStep = +n.dataset.j; renderJourney(); }));
   if (!reduceMotion) jTimer = setInterval(() => { jStep = (jStep + 1) % 5; renderJourney(); }, 4200);
-  onLang.push(renderJourney);
+  onLang.push(() => renderJourney(false));
+  lockHeight($('.journey-detail'), JOURNEY.length, (i) => {
+    const cur = jStep;
+    if (i >= 0) jStep = i;
+    renderJourney(false);
+    jStep = cur;
+  });
 
   /* ---------- Método LUMEN ---------- */
   const LUMEN = [
     ['L', 'Leer', 'Learn', 'Entender el negocio antes de tocar una campaña', 'Understand the business before touching a campaign',
       'Negocio, oferta, objetivos, audiencia, mercado, activos, operación comercial y contexto internacional.', 'Business, offer, goals, audience, market, assets, sales operation and international context.',
-      'brief construido contigo.', 'a brief built with you.'],
+      'resumen del negocio construido contigo.', 'a brief built with you.'],
     ['U', 'Ubicar', 'Uncover', 'Encontrar dónde se pierde la oportunidad', 'Find where opportunity is lost',
       'Mapeamos el embudo e identificamos fugas, riesgos y dependencias entre canales, equipo y oferta.', 'We map the funnel and identify leaks, risks and dependencies between channels, team and offer.',
       'mapa de oportunidades priorizado.', 'a prioritized opportunity map.'],
     ['M', 'Medir', 'Measure', 'Asegurar que los datos dicen la verdad', 'Make sure the data tells the truth',
-      'Validamos tracking, línea base, calidad de datos, señales tempranas y criterios de decisión.', 'We validate tracking, baseline, data quality, early signals and decision criteria.',
-      'scorecard inicial.', 'an initial scorecard.'],
+      'Validamos la medición, línea base, calidad de datos, señales tempranas y criterios de decisión.', 'We validate tracking, baseline, data quality, early signals and decision criteria.',
+      'tablero inicial de indicadores.', 'an initial scorecard.'],
     ['E', 'Ejecutar', 'Execute', 'Activar el plan con foco y disciplina', 'Activate the plan with focus and discipline',
       'Ponemos en marcha el plan a la medida en social, paid media, contenido, creatividades y medición.', 'We launch the tailored plan across social, paid media, content, creatives and measurement.',
-      'backlog de pruebas con responsables.', 'a test backlog with owners.'],
+      'lista priorizada de pruebas con responsables.', 'a test backlog with owners.'],
     ['N', 'Navegar', 'Navigate', 'Decidir qué mantener, ajustar, pausar o escalar', 'Decide what to keep, adjust, pause or scale',
       'Revisamos resultados, calidad de leads y cambios del negocio. El ciclo vuelve a empezar con mejor información.', 'We review results, lead quality and business changes. The cycle starts again with better information.',
-      'Clarity Review y siguiente ciclo.', 'Clarity Review and the next cycle.'],
+      'revisión de claridad y siguiente ciclo.', 'Clarity Review and the next cycle.'],
   ];
   let lStep = 0, lPlaying = !reduceMotion, lTimer;
-  function renderLumen() {
+  function renderLumen(animate = true) {
     const d = LUMEN[lStep];
     $$('.lumen-track button').forEach((b) => {
       const i = +b.dataset.step;
@@ -453,10 +487,11 @@
     });
     $('.lumen-progress').style.setProperty('--lp', (lStep / 4) * 100 + '%');
     $('#lumen-letter').textContent = d[0];
-    $('#lumen-kicker').textContent = `${lStep + 1}. ${t(d[1], d[2])} · ${t(d[2], d[1])}`;
+    $('#lumen-kicker').textContent = `${t('Paso', 'Step')} ${lStep + 1} · ${t(d[1], d[2])}`;
     $('#lumen-title').textContent = t(d[3], d[4]);
     $('#lumen-text').textContent = t(d[5], d[6]);
     $('#lumen-out').textContent = t(d[7], d[8]);
+    if (!animate) return;
     const p = $('.lumen-panel');
     p.classList.remove('swap'); void p.offsetWidth; p.classList.add('swap');
   }
@@ -473,7 +508,13 @@
   $('#lumen-prev').addEventListener('click', () => { setPlay(false); lumenGo(lStep - 1); });
   $('#lumen-next').addEventListener('click', () => { setPlay(false); lumenGo(lStep + 1); });
   $('#lumen-play').addEventListener('click', () => setPlay(!lPlaying));
-  onLang.push(() => { renderLumen(); setPlay(lPlaying); });
+  onLang.push(() => { renderLumen(false); setPlay(lPlaying); });
+  lockHeight($('.lumen-panel'), LUMEN.length, (i) => {
+    const cur = lStep;
+    if (i >= 0) lStep = i;
+    renderLumen(false);
+    lStep = cur;
+  });
 
   /* ---------- Servicios ---------- */
   $$('.chip[data-filter]').forEach((chip) => chip.addEventListener('click', () => {
@@ -510,26 +551,26 @@
   const QUIZ = [
     ['¿Cómo describes tu situación hoy?', 'How would you describe your situation today?', [
       ['Invierto en anuncios, pero no sé qué está funcionando.', 'I invest in ads, but I don\'t know what\'s working.'],
-      ['Necesito construir o corregir algo concreto: redes, campaña o tracking.', 'I need to build or fix something specific: social, a campaign or tracking.'],
+      ['Necesito construir o corregir algo concreto: redes, campaña o medición.', 'I need to build or fix something specific: social, a campaign or tracking.'],
       ['Ya tengo una base y quiero crecer con acompañamiento continuo.', 'I have a base and want to grow with ongoing support.']]],
     ['¿Qué te preocupa más?', 'What worries you most?', [
       ['Desperdiciar presupuesto en lo que no es.', 'Wasting budget on the wrong things.'],
       ['No tener un sistema: todo está desordenado.', 'Not having a system: everything is scattered.'],
       ['No tener equipo para ejecutar y optimizar cada semana.', 'Not having a team to execute and optimize every week.']]],
-    ['¿Confías en tus datos (tracking, conversiones, CRM)?', 'Do you trust your data (tracking, conversions, CRM)?', [
+    ['¿Confías en tus datos (medición, conversiones, CRM)?', 'Do you trust your data (tracking, conversions, CRM)?', [
       ['No mucho, no sé si miden bien.', 'Not really, I\'m not sure they measure correctly.'],
       ['A medias: hay cosas configuradas, pero incompletas.', 'Partly: some things are set up, but incomplete.'],
       ['Sí, tenemos datos confiables.', 'Yes, we have reliable data.']]],
   ];
   const MODES = [
-    ['Diagnostic Sprint', 'sprint', 'Necesitas foco antes de ejecutar.', 'You need focus before executing.',
+    [['Sprint de diagnóstico', 'Diagnostic Sprint'], 'sprint', 'Necesitas foco antes de ejecutar.', 'You need focus before executing.',
       'Empezamos con línea base, mapa del embudo y prioridades. Sales con un plan de acción claro, aunque decidas ejecutarlo con otro equipo.',
       'We start with a baseline, funnel map and priorities. You leave with a clear action plan, even if you execute it with another team.'],
-    ['Build & Launch', 'build', 'Necesitas construir o corregir un sistema.', 'You need to build or fix a system.',
+    [['Construir y lanzar', 'Build & Launch'], 'build', 'Necesitas construir o corregir un sistema.', 'You need to build or fix a system.',
       'Dejamos lista la campaña, el sistema social, el tracking o los activos que faltan, con documentación para operar.',
       'We deliver the campaign, social system, tracking or missing assets, ready to operate and documented.'],
-    ['Continuous Growth Partnership', 'partnership', 'Necesitas un socio que ejecute y aprenda contigo.', 'You need a partner who executes and learns with you.',
-      'Operación integrada de social y paid media, Clarity Review mensual y optimización por ciclos LUMEN.',
+    [['Socio de crecimiento continuo', 'Continuous Growth Partnership'], 'partnership', 'Necesitas un socio que ejecute y aprenda contigo.', 'You need a partner who executes and learns with you.',
+      'Operación integrada de redes sociales y pauta digital, revisión de claridad mensual y optimización por ciclos LUMEN.',
       'Integrated social and paid media operation, monthly Clarity Review and optimization in LUMEN cycles.'],
   ];
   let qStep = 0, qScore = [0, 0, 0];
@@ -546,11 +587,18 @@
       const m = qScore.indexOf(max);
       const d = MODES[m];
       $(`.modes li[data-mode="${m}"]`).classList.add('match');
-      quizBody.innerHTML = `<div class="q-result swap"><span class="badge">✓ ${t('Tu punto de partida recomendado', 'Your recommended starting point')}</span><h3>${d[0]}</h3><p><strong>${t(d[2], d[3])}</strong></p><p>${t(d[4], d[5])}</p><div class="q-actions"><a class="button" href="#contacto" data-prefill="${d[1]}">${t('Quiero empezar así', 'I want to start this way')} <svg><use href="#i-arrow"/></svg></a><button type="button" class="link-btn" id="q-restart">${t('Repetir', 'Retake')}</button></div></div>`;
+      quizBody.innerHTML = `<div class="q-result swap"><span class="badge">✓ ${t('Tu punto de partida recomendado', 'Your recommended starting point')}</span><h3>${t(d[0][0], d[0][1])}</h3><p><strong>${t(d[2], d[3])}</strong></p><p>${t(d[4], d[5])}</p><div class="q-actions"><a class="button" href="#contacto" data-prefill="${d[1]}">${t('Quiero empezar así', 'I want to start this way')} <svg><use href="#i-arrow"/></svg></a><button type="button" class="link-btn" id="q-restart">${t('Repetir', 'Retake')}</button></div></div>`;
       $('#q-restart').addEventListener('click', () => { qStep = 0; qScore = [0, 0, 0]; renderQuiz(); });
     }
   }
   onLang.push(renderQuiz);
+  lockHeight($('.quiz'), QUIZ.length + MODES.length, (i) => {
+    const cur = [qStep, qScore];
+    if (i >= 0 && i < QUIZ.length) qStep = i;
+    else if (i >= QUIZ.length) { qStep = QUIZ.length; qScore = MODES.map((_, m) => (m === i - QUIZ.length ? 3 : 0)); }
+    renderQuiz();
+    [qStep, qScore] = cur;
+  });
 
   /* ---------- Reporte vs decisión ---------- */
   const reportToggle = $('#report-toggle');
@@ -587,8 +635,9 @@
   (function typer() {
     const el = $('#typer');
     const phrases = ['Claridad para decidir. Apoyo que se siente.', 'Clarity to decide. Support you can feel.', 'No adivinamos. Diagnosticamos.', 'We don\'t guess. We diagnose.', 'Antes de escalar, ordena.', 'Before you scale, get organized.'];
-    if (reduceMotion) { el.textContent = phrases[0]; return; }
     let i = 0, n = 0, del = false;
+    lockHeight($('.typer'), phrases.length, (k) => { el.textContent = k >= 0 ? phrases[k] : phrases[i].slice(0, n); });
+    if (reduceMotion) { el.textContent = phrases[0]; return; }
     (function tick() {
       const p = phrases[i];
       n += del ? -1 : 1;
@@ -656,4 +705,14 @@
   setPlay(lPlaying);
   applyLang(initial === 'en' ? 'en' : 'es');
   runCalc();
+  onLang.push(relock);
+  relock();
+  if (document.fonts) document.fonts.ready.then(relock);
+  let lastW = innerWidth, rt;
+  addEventListener('resize', () => {
+    if (innerWidth === lastW) return; // iOS dispara resize al ocultar la barra; solo nos importa el ancho
+    lastW = innerWidth;
+    clearTimeout(rt);
+    rt = setTimeout(relock, 150);
+  });
 })();
