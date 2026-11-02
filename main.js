@@ -531,7 +531,12 @@
   $$('.chip[data-filter]').forEach((chip) => chip.addEventListener('click', () => {
     $$('.chip[data-filter]').forEach((c) => c.classList.toggle('is-active', c === chip));
     const f = chip.dataset.filter;
-    $$('.service-card').forEach((card) => card.classList.toggle('dim', f !== 'all' && card.dataset.cat !== f));
+    $$('.service-card').forEach((card) => { card.classList.toggle('dim', f !== 'all' && card.dataset.cat !== f); card.classList.remove('flipped'); });
+  }));
+  // Touch flips on tap; with a mouse the hover already flips, so a click shouldn't pin it.
+  $$('.service-card').forEach((card) => card.addEventListener('click', (e) => {
+    if (e.detail > 0 && matchMedia('(hover: hover)').matches) return;
+    card.classList.toggle('flipped');
   }));
   $$('.service-card').forEach((card) => card.addEventListener('pointermove', (e) => {
     const r = card.getBoundingClientRect();

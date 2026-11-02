@@ -356,14 +356,23 @@ select option { background: var(--panel-solid); }
 .chip:hover { color: var(--text); border-color: var(--border-strong); }
 .chip.is-active { background: var(--cyan); border-color: var(--cyan); color: #00111f; }
 .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.service-card { --x: 50%; --y: 50%; position: relative; padding: 24px; border: 1px solid var(--border); border-radius: var(--radius); background: radial-gradient(260px circle at var(--x) var(--y), rgba(0,177,215,.14), transparent 60%), var(--panel); transition: transform .4s var(--ease), border-color .3s, opacity .35s, filter .35s; }
-.service-card:hover { border-color: var(--border-strong); transform: translateY(-6px); }
+/* Service cards flip: front = name, back = one-line benefit (hover on desktop, tap on touch). */
+.service-card { --x: 50%; --y: 50%; position: relative; height: 196px; padding: 0; border: 0; background: none; text-align: left; perspective: 1000px; transition: transform .4s var(--ease), opacity .35s, filter .35s; }
 .service-card.dim { opacity: .25; filter: grayscale(1); transform: scale(.97); }
-.sc-icon { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 14px; background: linear-gradient(135deg, rgba(0,177,215,.2), rgba(46,116,181,.2)); color: var(--cyan); margin-bottom: 16px; }
+.sc-inner { position: relative; display: block; height: 100%; transform-style: preserve-3d; transition: transform .7s var(--ease); }
+.service-card.flipped .sc-inner, .service-card:focus-visible .sc-inner { transform: rotateY(180deg); }
+@media (hover: hover) { .service-card:not(.dim):hover .sc-inner { transform: rotateY(180deg); } }
+.sc-front, .sc-back { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 22px; border: 1px solid var(--border); border-radius: var(--radius); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.sc-front { background: radial-gradient(260px circle at var(--x) var(--y), rgba(0,177,215,.14), transparent 60%), var(--panel); }
+.sc-front strong { margin-top: auto; font-family: var(--display); font-size: 18px; line-height: 1.25; }
+.sc-hint { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; color: var(--cyan); font-size: 12.5px; font-weight: 600; letter-spacing: .02em; }
+.sc-hint::after { content: "↻"; font-size: 14px; }
+.sc-back { transform: rotateY(180deg); justify-content: center; gap: 10px; background: linear-gradient(135deg, rgba(0,177,215,.22), rgba(33,191,115,.16)), var(--panel-solid); border-color: var(--border-strong); }
+.sc-back strong { font-family: var(--display); font-size: 15px; color: var(--cyan); }
+.sc-back span { font-family: var(--display); font-size: 18px; font-weight: 600; line-height: 1.35; }
+.sc-icon { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 14px; background: linear-gradient(135deg, rgba(0,177,215,.2), rgba(46,116,181,.2)); color: var(--cyan); }
 .sc-icon svg { width: 24px; height: 24px; }
 .sc-tag { position: absolute; top: 24px; right: 20px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.service-card h3 { margin-bottom: 8px; font-size: 18px; }
-.service-card p { color: var(--muted); font-size: 14.5px; }
 
 /* Cases */
 .case-tabs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 18px; }
@@ -384,9 +393,7 @@ select option { background: var(--panel-solid); }
 .case-meta span:first-child { color: var(--cyan); background: rgba(0,177,215,.1); font-weight: 600; }
 .case-block + .case-block { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); }
 .case-block p { margin-top: 10px; color: var(--muted); }
-.case-list { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 9px; }
-.case-list li { position: relative; padding-left: 22px; font-size: 15px; }
-.case-list li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 8px; height: 8px; border-radius: 2px; background: var(--cyan); transform: rotate(45deg); }
+.case-block .case-outcome { color: var(--text); font-family: var(--display); font-size: 19px; line-height: 1.4; }
 .case-signals { display: grid; gap: 12px; align-content: start; background: linear-gradient(160deg, rgba(10,40,70,.6), rgba(4,20,36,.8)); }
 .case-sig-title { color: var(--cyan); font-size: 12px; font-weight: 600; letter-spacing: .14em; }
 .sig { padding: 14px 16px; border-radius: 14px; background: rgba(2,13,24,.55); border: 1px solid var(--border); }
@@ -402,9 +409,6 @@ select option { background: var(--panel-solid); }
 .sig-bar span { display: block; height: 100%; width: 0; border-radius: 6px; background: linear-gradient(90deg, var(--cyan), var(--green)); transition: width 1.2s .2s var(--ease); }
 .case.is-active .sig-bar span { width: var(--to); }
 .case-signals .fine { margin: 0; }
-.industry-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; margin: 30px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
-.industry-row li { display: inline-flex; align-items: center; gap: 8px; }
-.industry-row svg { width: 18px; height: 18px; color: var(--cyan); }
 
 /* Quiz */
 .quiz-wrap { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 72px); align-items: center; }
@@ -601,6 +605,8 @@ textarea { resize: vertical; min-height: 110px; }
   .lumen-controls { flex-direction: row; }
 }
 @media (max-width: 600px) {
+  .service-card { height: 176px; }
+  .sc-back span { font-size: 17px; }
   body { font-size: 15px; }
   .problem-grid, .deliv-grid, .service-grid, .form-row, .scenario { grid-template-columns: 1fr; }
   .case-tabs { grid-template-columns: 1fr; }
@@ -661,7 +667,7 @@ textarea { resize: vertical; min-height: 110px; }
 
 /* Touch screens keep :hover "stuck" after a tap; undo hover-only movement there. */
 @media (hover: none) {
-  .problem-card:hover, .service-card:hover { transform: none; }
+  .problem-card:hover { transform: none; }
   .pillar-tabs button:hover, .q-options button:hover { transform: none; }
   .j-node:hover span { transform: none; }
   .j-node.active span { transform: scale(1.08); }
