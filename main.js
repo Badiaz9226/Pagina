@@ -91,7 +91,8 @@
     spyQueued = false;
     const mid = innerHeight * 0.45;
     let current = null;
-    spyTargets.forEach(([a, s]) => { if (s.getBoundingClientRect().top <= mid) current = a; });
+    let best = -Infinity;
+    spyTargets.forEach(([a, s]) => { const top = s.getBoundingClientRect().top; if (top <= mid && top > best) { best = top; current = a; } });
     if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) current = spyTargets[spyTargets.length - 1][0];
     navLinks.forEach((a) => a.classList.toggle('active', a === current));
   };

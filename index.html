@@ -35,8 +35,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261101b">
-  <script src="main.js?v=20261101b" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261102a">
+  <script src="main.js?v=20261102a" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido" data-en="Skip to content">Saltar al contenido</a>
@@ -92,9 +92,9 @@
         <span>LUMETRIX</span>
       </a>
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-en-aria="Main navigation">
+        <a href="#metodo" data-en="Method">Método</a>
         <a href="#enfoque" data-en="Approach">Enfoque</a>
         <a href="#diagnostico" data-en="Funnel check">Diagnóstico</a>
-        <a href="#metodo" data-en="Method">Método</a>
         <a href="#servicios" data-en="Services">Servicios</a>
         <a href="#casos" data-en="Work">Casos</a>
         <a href="#faq" data-en="FAQ">Preguntas</a>
@@ -188,6 +188,65 @@
         <span data-en="Signals">Señales</span><i>✦</i><span data-en="Funnel">Embudo</span><i>✦</i><span data-en="Clarity">Claridad</span><i>✦</i><span data-en="Judgment">Criterio</span><i>✦</i><span data-en="Hypotheses">Hipótesis</span><i>✦</i><span data-en="Learning">Aprendizaje</span><i>✦</i><span data-en="Paid media">Pauta digital</span><i>✦</i><span data-en="Social media">Redes sociales</span><i>✦</i><span data-en="Tracking">Medición</span><i>✦</i>
       </div>
     </div>
+
+    <!-- JOURNEY -->
+    <section class="section" id="recorrido">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" data-en="WHAT WE CONNECT">LO QUE CONECTAMOS</p>
+          <h2 data-en="Strategy, media and data, joined.">Unimos estrategia, medios y datos.</h2>
+          <p data-en="We connect every point of the customer journey to understand the what, the why and the next step. Tap a stage.">Conectamos cada punto del recorrido del cliente para entender el qué, el porqué y el próximo paso. Toca una etapa.</p>
+        </div>
+        <div class="journey reveal">
+          <div class="journey-line" aria-hidden="true"><span class="journey-pulse"></span></div>
+          <button class="j-node" data-j="0"><span><svg><use href="#i-people"/></svg></span><small data-en="AUDIENCE">AUDIENCIA</small></button>
+          <button class="j-node" data-j="1"><span><svg><use href="#i-search"/></svg></span><small data-en="DISCOVERY">DESCUBRIMIENTO</small></button>
+          <button class="j-node" data-j="2"><span><svg><use href="#i-screen"/></svg></span><small data-en="CONSIDERATION">CONSIDERACIÓN</small></button>
+          <button class="j-node" data-j="3"><span><svg><use href="#i-like"/></svg></span><small data-en="CONVERSION">CONVERSIÓN</small></button>
+          <button class="j-node" data-j="4"><span><svg><use href="#i-chart"/></svg></span><small data-en="RETENTION">RETENCIÓN</small></button>
+        </div>
+        <div class="journey-detail reveal" aria-live="polite">
+          <div><span class="jd-label" data-en="What we look at">Qué miramos</span><p id="jd-look"></p></div>
+          <div><span class="jd-label" data-en="Typical leak">Fuga típica</span><p id="jd-leak"></p></div>
+          <div><span class="jd-label" data-en="Signal that matters">Señal que importa</span><p id="jd-signal"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LUMEN -->
+    <section class="section method" id="metodo">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" data-en="OUR OWN METHOD">MÉTODO PROPIO</p>
+          <h2 data-en="The LUMEN Method">Método LUMEN</h2>
+          <p data-en="Five moves that turn observation into learning, and learning into action. A cycle that starts again with better information.">Cinco movimientos que convierten observación en aprendizaje y aprendizaje en acción. Un ciclo que vuelve a empezar con mejor información.</p>
+        </div>
+        <div class="lumen reveal">
+          <div class="lumen-track" role="tablist" aria-label="LUMEN">
+            <div class="lumen-progress" aria-hidden="true"><span></span></div>
+            <button role="tab" data-step="0"><b>L</b><small data-en="Learn">Leer</small></button>
+            <button role="tab" data-step="1"><b>U</b><small data-en="Uncover">Ubicar</small></button>
+            <button role="tab" data-step="2"><b>M</b><small data-en="Measure">Medir</small></button>
+            <button role="tab" data-step="3"><b>E</b><small data-en="Execute">Ejecutar</small></button>
+            <button role="tab" data-step="4"><b>N</b><small data-en="Navigate">Navegar</small></button>
+          </div>
+          <div class="lumen-panel" aria-live="polite">
+            <div class="lumen-letter" id="lumen-letter">L</div>
+            <div>
+              <p class="lumen-kicker" id="lumen-kicker"></p>
+              <h3 id="lumen-title"></h3>
+              <p id="lumen-text"></p>
+              <p class="lumen-output"><svg><use href="#i-check"/></svg><span><strong data-en="Output:">Salida:</strong> <span id="lumen-out"></span></span></p>
+            </div>
+            <div class="lumen-controls">
+              <button type="button" class="round-btn" id="lumen-prev" aria-label="Anterior" data-en-aria="Previous">←</button>
+              <button type="button" class="round-btn" id="lumen-play" aria-label="Pausar" data-en-aria="Pause">❚❚</button>
+              <button type="button" class="round-btn" id="lumen-next" aria-label="Siguiente" data-en-aria="Next">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- EL RETO -->
     <section class="section" id="reto">
@@ -334,65 +393,6 @@
           </div>
           <div class="float-chip chip-a"><span class="live-dot"></span> <span data-en="Community + growth">Comunidad + crecimiento</span></div>
           <div class="float-chip chip-b">+18% <span data-en="saves">guardados</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- JOURNEY -->
-    <section class="section" id="recorrido">
-      <div class="container">
-        <div class="section-head center reveal">
-          <p class="eyebrow" data-en="WHAT WE CONNECT">LO QUE CONECTAMOS</p>
-          <h2 data-en="Strategy, media and data, joined.">Unimos estrategia, medios y datos.</h2>
-          <p data-en="We connect every point of the customer journey to understand the what, the why and the next step. Tap a stage.">Conectamos cada punto del recorrido del cliente para entender el qué, el porqué y el próximo paso. Toca una etapa.</p>
-        </div>
-        <div class="journey reveal">
-          <div class="journey-line" aria-hidden="true"><span class="journey-pulse"></span></div>
-          <button class="j-node" data-j="0"><span><svg><use href="#i-people"/></svg></span><small data-en="AUDIENCE">AUDIENCIA</small></button>
-          <button class="j-node" data-j="1"><span><svg><use href="#i-search"/></svg></span><small data-en="DISCOVERY">DESCUBRIMIENTO</small></button>
-          <button class="j-node" data-j="2"><span><svg><use href="#i-screen"/></svg></span><small data-en="CONSIDERATION">CONSIDERACIÓN</small></button>
-          <button class="j-node" data-j="3"><span><svg><use href="#i-like"/></svg></span><small data-en="CONVERSION">CONVERSIÓN</small></button>
-          <button class="j-node" data-j="4"><span><svg><use href="#i-chart"/></svg></span><small data-en="RETENTION">RETENCIÓN</small></button>
-        </div>
-        <div class="journey-detail reveal" aria-live="polite">
-          <div><span class="jd-label" data-en="What we look at">Qué miramos</span><p id="jd-look"></p></div>
-          <div><span class="jd-label" data-en="Typical leak">Fuga típica</span><p id="jd-leak"></p></div>
-          <div><span class="jd-label" data-en="Signal that matters">Señal que importa</span><p id="jd-signal"></p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LUMEN -->
-    <section class="section method" id="metodo">
-      <div class="container">
-        <div class="section-head center reveal">
-          <p class="eyebrow" data-en="OUR OWN METHOD">MÉTODO PROPIO</p>
-          <h2 data-en="The LUMEN Method">Método LUMEN</h2>
-          <p data-en="Five moves that turn observation into learning, and learning into action. A cycle that starts again with better information.">Cinco movimientos que convierten observación en aprendizaje y aprendizaje en acción. Un ciclo que vuelve a empezar con mejor información.</p>
-        </div>
-        <div class="lumen reveal">
-          <div class="lumen-track" role="tablist" aria-label="LUMEN">
-            <div class="lumen-progress" aria-hidden="true"><span></span></div>
-            <button role="tab" data-step="0"><b>L</b><small data-en="Learn">Leer</small></button>
-            <button role="tab" data-step="1"><b>U</b><small data-en="Uncover">Ubicar</small></button>
-            <button role="tab" data-step="2"><b>M</b><small data-en="Measure">Medir</small></button>
-            <button role="tab" data-step="3"><b>E</b><small data-en="Execute">Ejecutar</small></button>
-            <button role="tab" data-step="4"><b>N</b><small data-en="Navigate">Navegar</small></button>
-          </div>
-          <div class="lumen-panel" aria-live="polite">
-            <div class="lumen-letter" id="lumen-letter">L</div>
-            <div>
-              <p class="lumen-kicker" id="lumen-kicker"></p>
-              <h3 id="lumen-title"></h3>
-              <p id="lumen-text"></p>
-              <p class="lumen-output"><svg><use href="#i-check"/></svg><span><strong data-en="Output:">Salida:</strong> <span id="lumen-out"></span></span></p>
-            </div>
-            <div class="lumen-controls">
-              <button type="button" class="round-btn" id="lumen-prev" aria-label="Anterior" data-en-aria="Previous">←</button>
-              <button type="button" class="round-btn" id="lumen-play" aria-label="Pausar" data-en-aria="Pause">❚❚</button>
-              <button type="button" class="round-btn" id="lumen-next" aria-label="Siguiente" data-en-aria="Next">→</button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
